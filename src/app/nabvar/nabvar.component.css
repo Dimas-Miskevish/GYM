@@ -1,0 +1,105 @@
+/* Estilos para la imagen del logotipo */
+.logo {
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 20px;
+}
+
+/* Efecto al pasar el mouse en el logotipo */
+.logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la barra de navegación (navbar) */
+.navbar {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+  width: 100%; /* Asegura que la barra de navegación ocupe todo el ancho */
+  z-index: 1000;
+
+
+  
+}
+
+.background-container {
+  position: relative;
+  width: 100%;
+  height: calc(120vh - 20px);
+  background-size: 100% 110%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-left: 10px solid #000000; /* Borde izquierdo de 2px de ancho y color negro */
+  border-right: 10px solid #0a0a0a;
+  border-top: 130px solid black
+  
+  
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+
+
+.boton-puntos {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background-color: #121212;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 36px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-puntos::before {
+  content: "\27A4"; 
+  color: rgb(226, 219, 219);/* Código Unicode para la flecha apuntando hacia la derecha */
+}
+
+.boton-puntos:hover {
+  background-color:transparent;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Estilos para los enlaces del navbar */
+.navbar-nav .nav-link {
+  font-size: 18px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: auto auto;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-right: 30px;
+}
+
+/* Efecto hover para los enlaces */
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:active {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+}

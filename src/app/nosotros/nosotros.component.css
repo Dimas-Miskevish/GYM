@@ -1,0 +1,33 @@
+/* Estilos para la sección Entrenamientos */
+#nosotros {
+    background-color: rgb(15, 14, 14); /* Fondo negro */
+    color: white; /* Texto en color blanco para contrastar */
+    padding: 100px; /* Espaciado interno */
+  
+    /* Estilos para pantallas más pequeñas */
+    @media (max-width: 768px) {
+      padding: 150px;
+    }
+  
+    /* Estilos para pantallas aún más pequeñas */
+    @media (max-width: 576px) {
+      padding: 100px;
+    }
+  }
+  
+  #nosotros h2 {
+    background-color: rgb(15, 14, 14); /* Fondo negro */
+    color: rgb(143, 135, 135); /* Texto en color blanco para contrastar */
+    font-size: 40px;
+    margin-top: auto;
+  
+    /* Estilos para pantallas más pequeñas */
+    @media (max-width: 768px) {
+      font-size: 30px;
+    }
+  
+    /* Estilos para pantallas aún más pequeñas */
+    @media (max-width: 576px) {
+      font-size: 24px;
+    }
+  }

@@ -5,7 +5,7 @@
   border-radius: 50%;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-right: 20px;
+  margin-right: 0px;
 }
 
 /* Efecto al pasar el mouse en el logotipo */
@@ -14,99 +14,89 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para la barra de navegación (navbar) */
+/* Estilos para la barra de navegación */
 .navbar {
-  position: fixed;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px 0;
-  width: 100%; /* Asegura que la barra de navegación ocupe todo el ancho */
-  z-index: 1000;
-
-
-  
-}
-
-.background-container {
-  position: relative;
-  width: 100%;
-  height: calc(120vh - 20px);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  border-left: 10px solid #000000;
-  border-right: 10px solid #0a0a0a;
-  border-top: 130px solid black;
-  display: flex; /* Añade un display flex para centrar verticalmente el contenido */
-  align-items: center; /* Centra verticalmente el contenido */
-}
-
-.background-image {
-  flex: 1; /* Permite que la imagen ocupe el espacio disponible */
-  height: 100%; /* Ajusta la altura al 100% */
-  background-size: contain; /* Usa contain en lugar de cover para asegurar que se vea completa */
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Estilos para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .background-container {
-    height: calc(100vh - 20px);
-    border-top: 80px solid black;
-  }
-}
-
-
-
-.boton-puntos {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background-color: #121212;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  font-size: 36px;
-  color: #ffffff;
+  background-color: #333;
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.boton-puntos::before {
-  content: "\27A4"; 
-  color: rgb(226, 219, 219);/* Código Unicode para la flecha apuntando hacia la derecha */
-}
-
-.boton-puntos:hover {
-  background-color:transparent;
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  justify-content: space-between;
+  padding: 10px 20px;
+  z-index: 1000;
+  width: 100%; /* Asegura que la barra de navegación ocupe todo el ancho */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 
+/* Estilos para el contenedor del logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
 
-/* Estilos para los enlaces del navbar */
+/* Estilos para los enlaces de navegación */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .navbar-nav .nav-link {
   font-size: 18px;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: auto auto;
+  padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
-  margin-right: 30px;
+  margin-right: 30px
 }
 
 /* Efecto hover para los enlaces */
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link:active {
   background-color: rgba(255, 255, 255, 0.7);
   color: black;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-toggler {
+    display: none; /* Por defecto, ocultar el botón en pantallas grandes */
+  }
+  
+  /* Media query para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .navbar-toggler {
+      display: block;
+    }
+  
+    /* Resto de los estilos para el botón de hamburguesa en pantallas pequeñas */
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #333;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
 }

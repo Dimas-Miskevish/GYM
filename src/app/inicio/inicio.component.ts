@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -8,9 +9,8 @@ import { Component} from '@angular/core';
 })
 export class InicioComponent {
 
-  
-  
-  imgCollection: Array<object> = [
+
+   imgCollection: Array<object> = [
     {
       image: '../../assets/galeria1.jpg',
       thumbImage: '../../assets/galeria1.jpg',
@@ -33,5 +33,5 @@ export class InicioComponent {
       alt: 'Image 5'
     }
 ];
-
 }
+

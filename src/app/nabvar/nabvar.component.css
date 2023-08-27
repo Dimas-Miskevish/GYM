@@ -14,17 +14,15 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para la barra de navegación */
 .navbar {
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.7); /* Color de fondo con transparencia */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   z-index: 1000;
-  width: 100%; /* Asegura que la barra de navegación ocupe todo el ancho */
-  position: -webkit-sticky;
-  position: sticky;
+  width: 100%;
+  position: fixed;
   top: 0;
 }
 
@@ -66,6 +64,7 @@
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    
   }
   .navbar-toggler {
     position: absolute;

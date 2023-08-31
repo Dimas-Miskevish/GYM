@@ -3,7 +3,7 @@
     background-color: rgb(15, 14, 14); /* Fondo negro */
     color: white; /* Texto en color blanco para contrastar */
     padding: 100px; /* Espaciado interno */
-  
+    height: 800px;
     /* Estilos para pantallas más pequeñas */
     @media (max-width: 768px) {
       padding: 150px;
@@ -16,10 +16,10 @@
   }
   
   #nosotros h2 {
-    background-color: rgb(15, 14, 14); /* Fondo negro */
-    color: rgb(143, 135, 135); /* Texto en color blanco para contrastar */
+    background-color: rgb(15, 15, 14); /* Fondo negro */
+    color: rgb(251, 238, 0); /* Texto en color blanco para contrastar */
     font-size: 40px;
-    margin-top: auto;
+    margin-top: 10%;
   
     /* Estilos para pantallas más pequeñas */
     @media (max-width: 768px) {

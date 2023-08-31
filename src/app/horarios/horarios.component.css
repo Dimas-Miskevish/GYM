@@ -1,26 +1,15 @@
+#horarios {
+  background-color: rgb(18, 17, 17); /* Color de fondo */
+  border-top: 2px solid white; /* Borde blanco en la parte superior */
+  border-bottom: 2px solid rgb(12, 12, 12); /* Borde blanco en la parte inferior */
+  padding: 10px; /* Añade un espacio de relleno alrededor de la imagen */
+  max-width: 1300px; /* Establece el ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor en la página */
 
-#horarios-content {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente para el contenido */
-    padding: 20px; /* Espaciado interno para el contenido */
-    border-radius: 10px; /* Bordes redondeados para el contenido */
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-  }
-  
-  
-  
-    #horarios {
-      position: relative;
-      color: white; /* Texto en color blanco para contrastar */
-    
-    
-    }
-    
-    #horarios img {
-      width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
-      height: auto; /* Mantiene la proporción de la imagen */
-      display: block; /* Evita espacio debajo de la imagen */
-    }
-    
-  
+}
+
+#horarios img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Permite que la altura se ajuste proporcionalmente */
+}
+

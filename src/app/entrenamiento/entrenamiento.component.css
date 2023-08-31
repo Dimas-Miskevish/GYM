@@ -1,0 +1,72 @@
+/* styles.css (o styles.scss) */
+
+.carousel-item{
+    cursor: pointer;
+    transition: all 500ms ease-out;
+}
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(11, 103, 123, 0.7);
+    transition: all 500ms ease-out;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    
+  }
+  
+  /* Aplica los estilos al hacer hover sobre .carousel-caption */
+  .carousel-item:hover > .carousel-caption {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .carousel-item:hover > .carousel-caption h5{
+    margin-top: 200px;
+    margin-bottom: 50px;
+  }
+
+  .carousel-caption h5{
+    font-weight: 400;
+    margin-bottom: 350px;
+    transition: all 500ms ease-out;
+    margin-top: 30px;
+  }
+  .carousel-item:hover > img{
+    transform: scale(1.1);
+    transition: all 500ms ease-out;
+
+  }
+  .carousel-item img {
+    transition: transform 500ms ease-out;
+    transform: scale(1);
+  }
+
+  .carousel-caption p{
+    text-align: justify;
+    line-height: 1.5;
+    width: 80%;
+    max-width: 220%;
+    margin: auto;
+    
+  }
+  
+  .carousel-caption ul {
+    text-align: left;
+    list-style-type: none;
+    padding-left: 0;
+    display: inline-block;
+}
+
+.carousel-caption ul li {
+    text-align: left;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-caption ul li::before {
+    content: "•";
+    margin-right: 5px;
+}

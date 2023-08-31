@@ -23,11 +23,12 @@
   }
   
   .carousel-item:hover > .carousel-caption h5{
-    margin-top: 200px;
+    margin-top: 160px;
     margin-bottom: 50px;
   }
 
   .carousel-caption h5{
+    font-size: 50px;
     font-weight: 400;
     margin-bottom: 350px;
     transition: all 500ms ease-out;

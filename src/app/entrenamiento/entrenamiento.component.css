@@ -1,4 +1,6 @@
 
+
+
 .carousel-item{
     cursor: pointer;
     transition: all 500ms ease-out;
@@ -86,4 +88,3 @@
     content: "•";
     margin-right: 5px;
 }
-

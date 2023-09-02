@@ -1,0 +1,25 @@
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    z-index: 999; /* Para asegurarte de que esté por encima de otros elementos */
+    transition: transform 0.2s; /* Agrega una transición suave al botón */
+  }
+  
+  .whatsapp-button img {
+    width: 35px;
+    margin-right: 10px;
+  }
+  
+  /* Estilos cuando se coloca el mouse encima (hover) */
+  .whatsapp-button:hover {
+    background-color: #128c7e; /* Cambia el color de fondo en el hover */
+    transform: scale(1.05); /* Aplica un efecto de escala al botón */
+  }
+  

@@ -1,10 +1,12 @@
 .contacto {
     background-color: #000000;
     padding: 40px 0;
+    
   }
 
   h2{
     color: white;
+    margin-top: 80px;
   }
   
   .form {
@@ -13,6 +15,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
   }
   
   .form-group {
@@ -60,3 +63,13 @@
     }
   }
   
+  footer {
+    background-color: #333; /* Color de fondo del pie de página */
+    color: #fff; /* Color del texto */
+    text-align: center; /* Alineación del texto al centro */
+    padding: 20px 0; /* Espaciado interno (arriba y abajo) */
+}
+
+footer p {
+    margin: 5px; /* Márgenes entre párrafos */
+}

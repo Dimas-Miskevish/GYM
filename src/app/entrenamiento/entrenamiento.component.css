@@ -88,3 +88,17 @@
     content: "•";
     margin-right: 5px;
 }
+
+@media (max-width: 768px) {
+  .carousel-item:hover > .carousel-caption,
+  .carousel-item:active > .carousel-caption {
+      visibility: visible;
+      opacity: 1;
+  }
+
+  .carousel-item:hover > .carousel-caption h5,
+  .carousel-item:active > .carousel-caption h5 {
+      margin-top: 160px;
+      margin-bottom: 50px;
+  }
+}

@@ -8,6 +8,8 @@ import { Component} from '@angular/core';
   
 })
 export class InicioComponent {
+  constructor() { }
+  ngOnInit(): void { }
 
 
    imgCollection: Array<object> = [

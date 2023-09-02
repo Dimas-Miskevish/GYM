@@ -1,75 +1,92 @@
+/* Estilos para la sección de contacto */
 .contacto {
-    background-color: #000000;
-    padding: 40px 0;
-    
-  }
+  background-color: #000000;
+  padding: 40px 0;
+}
 
-  h2{
-    color: white;
-    margin-top: 80px;
-  }
-  
+/* Estilos para los encabezados dentro de la sección de contacto */
+h2 {
+  color: white;
+  margin-top: 80px; /* Ajusta este margen según tus preferencias */
+  width: 100%;
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilos para el formulario de contacto */
+.form {
+  width: 40%;
+  margin: 0 auto; /* Centra horizontalmente el formulario */
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px; /* Puedes ajustar este margen según tus preferencias */
+  color: white; /* Cambia el color de texto según tus preferencias */
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Estilos para las etiquetas del formulario */
+.form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: rgb(251, 238, 0);
+}
+
+/* Estilos para los campos de entrada y áreas de texto */
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(251, 238, 0);
+  border-radius: 5px;
+  color: rgb(251, 238, 0);
+}
+
+/* Estilos para los campos de entrada y áreas de texto cuando están enfocados */
+.form input:focus,
+.form textarea:focus {
+  border-color: rgb(251, 238, 0);
+}
+
+/* Estilos para el botón de envío del formulario */
+.form button {
+  background-color: rgb(251, 238, 0);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Estilos para el botón de envío del formulario cuando se coloca el mouse encima */
+.form button:hover {
+  background-color: rgb(251, 238, 0);
+}
+
+/* Reglas de medios para ajustar el formulario en pantallas más pequeñas */
+@media screen and (max-width: 768px) {
   .form {
-    width: 40%;
-    background-color: #111;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color:rgb(251, 238, 0);
-  }
-  
-  .form input,
-  .form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid rgb(251, 238, 0);
-    border-radius: 5px;
-    color: rgb(251, 238, 0);
-  }
-  
-  .form input:focus,
-  .form textarea:focus {
-    border-color: rgb(251, 238, 0);
-  }
-  
-  .form button {
-    background-color: rgb(251, 238, 0);
-    color: rgb(0, 0, 0);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .form button:hover {
-    background-color: rgb(251, 238, 0);
-  }
-  
-  @media screen and (max-width: 768px) {
-    .form {
       padding: 15px;
-    }
+      width: 80%;
   }
-  
-  footer {
-    background-color: #333; /* Color de fondo del pie de página */
-    color: #fff; /* Color del texto */
-    text-align: center; /* Alineación del texto al centro */
-    padding: 20px 0; /* Espaciado interno (arriba y abajo) */
 }
 
-footer p {
-    margin: 5px; /* Márgenes entre párrafos */
+/* Estilos para el pie de página */
+footer {
+  background-color: #333; /* Color de fondo del pie de página */
+  color: #fff; /* Color del texto */
+  text-align: center; /* Alineación del texto al centro */
+  padding: 20px 0; /* Espaciado interno (arriba y abajo) */
 }
+
+/* Estilos para los párrafos dentro del pie de página */
+footer p {
+  margin: 5px; /* Márgenes entre párrafos */
+}
+

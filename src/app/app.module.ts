@@ -27,7 +27,6 @@ import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientMo
   ],
   imports: [
     BrowserModule,
-    NgImageSliderModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule 

@@ -10,6 +10,10 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { EntrenamientoComponent } from './entrenamiento/entrenamiento.component';
 import { HorariosComponent } from './horarios/horarios.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { ContactoComponent } from './contacto/contacto.component';
   imports: [
     BrowserModule,
     NgImageSliderModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

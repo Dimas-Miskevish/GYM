@@ -1,0 +1,7 @@
+/* Estilos personalizados para las imágenes del carousel */
+.carousel-inner .carousel-item img {
+    max-height: 750px; /* Ajusta la altura máxima según tus necesidades */
+    margin: 0 auto; /* Centra las imágenes horizontalmente */
+    display: block; /* Evita el espacio adicional debajo de las imágenes */
+  }
+  

@@ -3,7 +3,7 @@
   border-top: 2px solid white; /* Borde blanco en la parte superior */
   border-bottom: 2px solid rgb(12, 12, 12); /* Borde blanco en la parte inferior */
   padding: 10px; /* Añade un espacio de relleno alrededor de la imagen */
-  max-width: 1300px; /* Establece el ancho máximo del contenedor */
+  max-width: 1300; /* Establece el ancho máximo del contenedor */
   margin: 0 auto; /* Centra el contenedor en la página */
 
 }

@@ -2,21 +2,18 @@
   <div class="container">
     <div class="section-title" id="section-title">
       <h2>Dejanos tu consulta</h2>
-      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-        <label>Apellido y Nombre</label><br>
-        <input formControlName="name" type="text" placeholder="Ingrese tu Apellido y Nombre." ><br>
-  
-        <label>E-mail</label><br>
-        <input formControlName="email" type="email" placeholder="Ingrese tu E-mail."  ><br>
-  
-        <label>Asunto</label><br>
-        <input formControlName="asunto" type="text" placeholder="Ingresar asunto."><br>
-  
-        <label>Descripción</label><br>
-        <textarea formControlName="descripcion" placeholder="Ingrese su mensaje."></textarea><br>
-  
-        <button type="submit" [disabled]="formulario.invalid"><p>Enviar</p></button>
-      </form>
+      <form class="contact-form" (submit)="sendEmail($event)">
+        <label>Apellido y Nombre</label>
+        <input type="text" name="from_name" placeholder="Escribir Apellido y Nombre">
+        <label>Email</label>
+        <input type="email" name="email_id"placeholder="Escribir su email">
+        <label>Mensaje</label>
+        <textarea name="message" placeholder="Escribir su mensaje"></textarea>
+        <button class="button" type="submit" [disabled]="enviadoExitosamente">
+          {{ enviadoExitosamente ? 'Mensaje enviado' : 'Enviar' }}
+        </button>
+
+    </form>
     </div>
   </div>
 </section>

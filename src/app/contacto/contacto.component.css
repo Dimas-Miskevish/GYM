@@ -1,60 +1,55 @@
 /* Estilos para la sección de contacto */
 .contacto {
-  background-color: #000000;
+  background: radial-gradient(circle, rgb(32, 32, 53) 60%, rgb(0, 0, 0) 100%);
   padding: 40px 0;
 }
 
 /* Estilos para los encabezados dentro de la sección de contacto */
 .contacto h2 {
   color: white;
-  margin-top: 80px; /* Ajusta este margen según tus preferencias */
-  width: 100%;
-  text-align: center; /* Centra el texto horizontalmente */
+  text-align: center;
+  margin-top:10% ;
 }
 
 /* Estilos para el formulario de contacto */
-.contacto form {
-  width: 40%;
+.contacto .contact-form {
+  width: 40%; /* Ajusta el ancho del formulario según tus preferencias */
   margin: 0 auto; /* Centra horizontalmente el formulario */
   background-color: #111;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 40px; /* Puedes ajustar este margen según tus preferencias */
+  margin-top: 40px; /* Ajusta este margen según tus preferencias */
   color: white; /* Cambia el color de texto según tus preferencias */
 }
 
-/* Estilos para los grupos de formulario */
-.contacto .form-group {
-  margin-bottom: 20px;
-}
-
 /* Estilos para las etiquetas del formulario */
-.contacto form label {
-  display: block;
+.contacto .contact-form label {
   font-weight: bold;
+  display: block;
   margin-bottom: 5px;
   color: rgb(251, 238, 0);
 }
 
 /* Estilos para los campos de entrada y áreas de texto */
-.contacto form input,
-.contacto form textarea {
+.contacto .contact-form input,
+.contacto .contact-form textarea {
   width: 100%;
   padding: 10px;
+  margin-bottom: 15px; /* Espacio entre los campos */
   border: 1px solid rgb(251, 238, 0);
   border-radius: 5px;
   color: rgb(0, 0, 0);
 }
 
 /* Estilos para los campos de entrada y áreas de texto cuando están enfocados */
-.contacto form input:focus,
-.contacto form textarea:focus {
+.contacto .contact-form input:focus,
+.contacto .contact-form textarea:focus {
   border-color: rgb(251, 238, 0);
 }
 
 /* Estilos para el botón de envío del formulario */
-.contacto form button {
+.contacto .contact-form .button {
   background-color: rgb(251, 238, 0);
   color: rgb(0, 0, 0);
   border: none;
@@ -65,17 +60,30 @@
 }
 
 /* Estilos para el botón de envío del formulario cuando se coloca el mouse encima */
-.contacto form button:hover {
-  background-color: rgb(251, 238, 0);
+.contacto .contact-form button:hover {
+  background-color: #878738; /* Color de fondo al pasar el mouse */
 }
 
 /* Reglas de medios para ajustar el formulario en pantallas más pequeñas */
 @media screen and (max-width: 768px) {
-  .contacto form {
+  .contacto .contact-form {
+    width: 80%; /* Ajusta el ancho del formulario en pantallas pequeñas */
     padding: 15px;
-    width: 80%;
   }
 }
+
+/* Estilos para la marca de verificación */
+.checkmark {
+  color: green; /* Color de la marca de verificación */
+  font-size: 24px; /* Tamaño de fuente de la marca de verificación */
+  text-align: center;
+  margin-top: 10px; /* Espacio superior */
+  display: none; /* Inicialmente oculto */
+}
+
+/* Estilos adicionales si es necesario */
+
+
 
 
 /* Estilos para el pie de página */

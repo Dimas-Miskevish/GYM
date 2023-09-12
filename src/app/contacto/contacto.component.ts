@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http'; // Importa HttpClient
+
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
 
 
 @Component({
@@ -8,26 +9,26 @@ import { HttpClient } from '@angular/common/http'; // Importa HttpClient
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
-export class ContactoComponent implements OnInit {
-  formulario: FormGroup = this.formBuilder.group({
-    name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    asunto: ['', Validators.required],
-    descripcion: ['', Validators.required]
-  });
+export class ContactoComponent  {
+  enviadoExitosamente: boolean = false;
+  
 
-  constructor(private formBuilder: FormBuilder) { }
+  public sendEmail(e: Event) {
+    e.preventDefault();
 
-  ngOnInit(): void {
-    // Opcional: Puedes realizar más inicializaciones en ngOnInit si es necesario.
-  }
-
-  onSubmit() {
-    if (this.formulario.valid) {
-      // Aquí puedes manejar el envío del formulario
-      console.log(this.formulario.value);
-    } else {
-      // Manejar errores de validación
-    }
+    emailjs.sendForm('service_cbp6ata', 'template_v1xb09e', e.target as HTMLFormElement, 'vJRzSu8zVn0eEOlaw')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+        this.enviadoExitosamente = true; // Establece enviadoExitosamente en true después del envío exitoso
+      }, (error) => {
+        console.log(error.text);
+      });
   }
 }
+
+
+
+
+
+
+

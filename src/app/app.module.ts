@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NabvarComponent } from './nabvar/nabvar.component';
@@ -11,6 +13,9 @@ import { HorariosComponent } from './horarios/horarios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+import { FormsModule } from '@angular/forms'; // Importa FormsModule
+
+
 
 
 
@@ -28,7 +33,10 @@ import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientMo
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]

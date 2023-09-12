@@ -6,9 +6,10 @@
   line-height: 1.6;
   color: white;
   text-align: center;
-  background-color: black;
-    }
 
+  background: radial-gradient(circle, rgb(32, 32, 53) 60%, rgb(0, 0, 0) 100%);
+}
+   
    .nosotros .titulo-llamativo {
       font-size: 36px; /* Tamaño de fuente grande */
       font-weight: bold; /* Texto en negrita */
@@ -27,11 +28,16 @@
     margin-bottom: 10px; /* Espacio inferior para separarlo de otros elementos */
     padding: 15px;
     color: #000000; /* Color del título */
+    
 
   }
   .container .card p{
     justify-content: center;
-    color: white;
+    color: rgb(64, 56, 56);
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 14px;
+   
   }
 .container {
   
@@ -52,11 +58,12 @@
   text-align: center;
   transition: all 0.25s;
   margin-bottom: 20px;
+  border: #000000;
 }
 
 /* Estilos para las tarjetas impares */
 .container .card:nth-child(odd) {
-  background: linear-gradient(135deg, #242c45, #4caf50,#242c45); /* Fondo con degradado */
+  background: linear-gradient(135deg, #2b2a2a, #c3d29c,#242c45); /* Fondo con degradado */
   color: white; /* Texto blanco */
   font-size: 18px; /* Ajusta el tamaño de la fuente según tus preferencias */
   font-weight: bold; /* Haz que la fuente sea más negrita si es necesario */
@@ -65,7 +72,7 @@
 
 /* Estilos para las tarjetas pares */
 .container .card:nth-child(even) {
-  background: linear-gradient(135deg, #2f2e2e, #cccf2e 20%, #414040); /* Fondo con degradado */
+  background: linear-gradient(135deg, #423f3f, #adb5c6 20%, #414040); /* Fondo con degradado */
   color: white; /* Texto blanco */
   font-size: 18px; /* Ajusta el tamaño de la fuente según tus preferencias */
   font-weight: bold; /* Haz que la fuente sea más negrita si es necesario */
@@ -81,6 +88,7 @@
 @media screen and (max-width: 768px) {
   .container .card {
     width: 100%; /* Las tarjetas ocuparán todo el ancho en pantallas pequeñas */
+    height: 100%;
     margin-bottom: 20px; /* Espacio entre las tarjetas en pantallas pequeñas */
   }
 }

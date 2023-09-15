@@ -1,4 +1,4 @@
-.nosotros{
+.nosotros {
   width: 100%;
   height: 100%;
   font-family: sans-serif;
@@ -6,52 +6,62 @@
   line-height: 1.6;
   color: white;
   text-align: center;
-
   background: radial-gradient(circle, rgb(32, 32, 53) 60%, rgb(0, 0, 0) 100%);
 }
-   
-   .nosotros .titulo-llamativo {
-      font-size: 36px; /* Tamaño de fuente grande */
-      font-weight: bold; /* Texto en negrita */
-      text-align: center; /* Centra horizontalmente el texto */
-      text-transform: uppercase; /* Convierte el texto en mayúsculas */
-      color: #eecf09; /* Color de texto llamativo */
-      text-shadow: 4px 4px 6px rgba(215, 202, 16, 0.5); /* Sombra de texto */
-      letter-spacing: 2px; /* Espaciado entre letras */
-      margin-bottom: 20px; /* Espacio inferior para separarlo de otros elementos */
-      padding-top: 130px;
-    }
-    .container .card h3{
-      
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
-    margin-bottom: 10px; /* Espacio inferior para separarlo de otros elementos */
-    padding: 15px;
-    color: #000000; /* Color del título */
-    
 
+.nosotros .titulo-llamativo {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #eecf09;
+  text-shadow: 4px 4px 6px rgba(215, 202, 16, 0.5);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  padding-top: 130px;
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
   }
-  .container .card p{
-    justify-content: center;
-    color: rgb(54, 46, 46);
-    margin-left: 2%;
-    margin-right: 2%;
-    font-size: 14px;
-   
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
   }
-.container {
-  
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+.artboard {
   width: 100%;
   max-width: 1200px;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas se coloquen una debajo de la otra en pantallas más pequeñas */
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: auto;
 }
 
-.container .card {
+.card {
   width: calc(33.33% - 20px);
-  height: 430px;
+  height: 30rem;
   border-radius: 8px;
   box-shadow: 0 2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -59,36 +69,163 @@
   transition: all 0.25s;
   margin-bottom: 20px;
   border: #000000;
+  background: radial-gradient(circle, rgb(32, 32, 53) 60%, rgb(0, 0, 0) 100%);
 }
 
-/* Estilos para las tarjetas impares */
-.container .card:nth-child(odd) {
-  background: linear-gradient(135deg, #2b2a2a, #c3d29c,#242c45); /* Fondo con degradado */
-  color: white; /* Texto blanco */
-  font-size: 18px; /* Ajusta el tamaño de la fuente según tus preferencias */
-  font-weight: bold; /* Haz que la fuente sea más negrita si es necesario */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); 
+.card__side {
+  height: 52rem;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
 }
 
-/* Estilos para las tarjetas pares */
-.container .card:nth-child(even) {
-  background: linear-gradient(135deg, #423f3f, #adb5c6 20%, #414040); /* Fondo con degradado */
-  color: white; /* Texto blanco */
-  font-size: 18px; /* Ajusta el tamaño de la fuente según tus preferencias */
-  font-weight: bold; /* Haz que la fuente sea más negrita si es necesario */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Agrega una sombra de texto */
+.card__side--front {
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.7)), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
 }
 
-.container .card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+.card__side--back {
+  background-color: #fff;
+  transform: rotateY(180deg);
 }
 
-/* Agrega una media query para ajustar el diseño en pantallas más pequeñas */
-@media screen and (max-width: 768px) {
-  .container .card {
-    width: 100%; /* Las tarjetas ocuparán todo el ancho en pantallas pequeñas */
-    height: 100%;
-    margin-bottom: 20px; /* Espacio entre las tarjetas en pantallas pequeñas */
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+
+.card__theme {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 54%;
+  width: 90%;
+  text-align: center;
+}
+
+.card__theme-box {
+  color: #fff;
+  margin-bottom: 30rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.card__subject {
+  font-family: "Inconsolata", monospace;
+  font-size: 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.card__cover {
+  position: relative;
+  background-size: cover;
+  height: 8rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(to top right, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.65)), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+}
+
+.card__heading {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+}
+
+.card__heading-span {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+}
+
+.card__details {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem 1rem;
+  margin-bottom: 1.5rem;
+  height: auto;
+}
+
+.card__details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card__details ul li {
+  text-align: left;
+  font-size: 15px;
+  color: black;
+}
+
+.card__details ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+@media only screen and (max-width: 40em), only screen and (hover: none) {
+  .artboard {
+    flex-direction: column; /* Cambiamos la dirección de flex a columna */
+    align-items: center; /* Centramos los elementos horizontalmente */
+  }
+
+  .card {
+    width: 100%; /* Ocupar todo el ancho disponible */
+    margin-bottom: 2rem; /* Añadimos un margen inferior entre las tarjetas */
+  }
+
+  .card__side {
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+  .card__side--front {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+  .card__side--back {
+    transform: rotateY(0);
+  }
+  .card:hover .card__side--front {
+    transform: rotateY(0);
+  }
+  .card__details {
+    padding: 3rem 2rem;
+  }
+  .card__theme {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    width: 100%;
+    padding: 5rem 4rem 1.5rem 4rem;
+    text-align: right;
+  }
+  .card__theme-box {
+    margin-bottom: 1.5rem;
+  }
+  .card__title {
+    font-size: 4rem;
   }
 }

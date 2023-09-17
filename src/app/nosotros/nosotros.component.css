@@ -14,29 +14,22 @@
   letter-spacing: 2px;
   margin-bottom: 20px;
   padding-top: 130px;
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 2rem;
-    margin: 0 auto;
-    font-family: "Courier New";
-    border-right: 0.15em solid #18bdec;
-    animation: typing 15s steps(38) s 1 normal both, blink 1s steps(1) infinite;
-  }
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
-  }
+  font-size: 3rem;
+  text-align: center;
+  -webkit-background-clip: text;
+  background-clip: text; 
+  color: rgb(249, 241, 1);
+  font-weight: bold;
 
+}
+
+
+
+
+/* Aplica la animación al elemento con la clase "titulo-llamativo" */
+.titulo-llamativo {
+  animation: fadeIn 1s ease-in-out; /* Puedes ajustar la duración o el efecto según tus preferencias */
+}
 /* Reset */
 *,
 *::after,
@@ -99,6 +92,9 @@ html {
 @media (max-width: 480px) {
   .card {
     width: 100%;
+    height: 100%
+
+    
   }
 }
 
@@ -123,7 +119,7 @@ html {
 }
 
 .card__side--front {
-  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.7)), url(../../assets/nostros/gym.jpg);
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(228, 178, 70, 0.7)), url(../../assets/nostros/gym.jpg);
   background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
 }
 
@@ -163,10 +159,13 @@ html {
 
 .card__subject {
   font-family: "Inconsolata", monospace;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   text-align: center;
   text-transform: uppercase;
   margin: 0;
+  color: #e0d8d8;
+
+  font-weight: bold;
 }
 
 .card__cover {
@@ -252,7 +251,8 @@ html {
     transform: rotateY(0);
   }
   .card__details {
-    padding: 3rem 2rem;
+    padding: 1rem 1rem;
+    height: 28em;
   }
   .card__theme {
     position: relative;

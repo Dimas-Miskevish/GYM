@@ -10,16 +10,32 @@
 }
 
 .nosotros .titulo-llamativo {
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  color: #eecf09;
-  text-shadow: 4px 4px 6px rgba(215, 202, 16, 0.5);
+ 
   letter-spacing: 2px;
   margin-bottom: 20px;
   padding-top: 130px;
-}
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 2rem;
+    margin: 0 auto;
+    font-family: "Courier New";
+    border-right: 0.15em solid #18bdec;
+    animation: typing 15s steps(38) s 1 normal both, blink 1s steps(1) infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
 
 /* Reset */
 *,
@@ -59,9 +75,10 @@ html {
   margin: auto;
 }
 
+
 .card {
   width: calc(33.33% - 20px);
-  height: 30rem;
+  height: 28rem;
   border-radius: 8px;
   box-shadow: 0 2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -71,6 +88,25 @@ html {
   border: #000000;
   background: radial-gradient(circle, rgb(32, 32, 53) 60%, rgb(0, 0, 0) 100%);
 }
+
+@media (max-width: 1100px) {
+  .card {
+    width: calc(50% - 20px);
+  }
+}
+
+/* Regla de medios para 1 columna en pantallas pequeñas */
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
 
 .card__side {
   height: 52rem;
@@ -87,12 +123,14 @@ html {
 }
 
 .card__side--front {
-  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.7)), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.7)), url(../../assets/nostros/gym.jpg);
+  background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
 }
 
 .card__side--back {
   background-color: #fff;
   transform: rotateY(180deg);
+  
 }
 
 .card:hover .card__side--back {
@@ -139,7 +177,7 @@ html {
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-image: linear-gradient(to top right, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.65)), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(189, 203, 64, 0.7)), url(../../assets/nostros/gym.jpg);
 }
 
 .card__heading {
@@ -171,7 +209,8 @@ html {
 
 .card__details ul {
   list-style: none;
-  width: 80%;
+  /* Puedes ajustar el ancho según tus necesidades o quitarlo */
+  /* width: 80%; */
   margin: 0 auto;
 }
 
@@ -179,22 +218,23 @@ html {
   text-align: left;
   font-size: 15px;
   color: black;
+  /* Añadir desbordamiento y/o evitar retorno de línea según sea necesario */
+  /* overflow: auto; */
+  /* white-space: nowrap; */
 }
+
 
 .card__details ul li:not(:last-child) {
   border-bottom: 1px solid #eee;
 }
 
-@media only screen and (max-width: 40em), only screen and (hover: none) {
+@media only screen and (max-width: 50em), only screen and (hover: none)  {
   .artboard {
     flex-direction: column; /* Cambiamos la dirección de flex a columna */
     align-items: center; /* Centramos los elementos horizontalmente */
   }
 
-  .card {
-    width: 100%; /* Ocupar todo el ancho disponible */
-    margin-bottom: 2rem; /* Añadimos un margen inferior entre las tarjetas */
-  }
+
 
   .card__side {
     height: auto;
@@ -206,6 +246,7 @@ html {
   }
   .card__side--back {
     transform: rotateY(0);
+   
   }
   .card:hover .card__side--front {
     transform: rotateY(0);
@@ -227,5 +268,8 @@ html {
   }
   .card__title {
     font-size: 4rem;
+  }
+  .card__side--front{
+    display: none;
   }
 }

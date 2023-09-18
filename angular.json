@@ -55,22 +55,13 @@
               "outputHashing": "all"
             },
             "development": {
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                     "minify": true,
-                     "inlineCritical": false
-                     },
-                "fonts": true
-            },
-            "outputHashing": "all",
-            "sourceMap": false,
-            "namedChunks": false,
-            "aot": true,
-            "extractLicenses": true,
-            "vendorChunk": false,
-            "buildOptimizer": true
-          }
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
           },
           "defaultConfiguration": "production"
         },

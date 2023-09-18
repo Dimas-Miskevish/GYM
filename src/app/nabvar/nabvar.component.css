@@ -14,6 +14,8 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+
+
 .navbar {
   background-color: rgba(51, 51, 51, 0.7); /* Color de fondo con transparencia */
   display: flex;
@@ -24,6 +26,8 @@
   width: 100%;
   position: fixed;
   top: 0;
+  border-bottom: 1px solid white; /* Agregar una línea blanca en el borde inferior */
+
 }
 
 /* Estilos para el contenedor del logo */
@@ -39,6 +43,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  border-top: 1px solid white; 
 }
 
 .navbar-nav .nav-link {

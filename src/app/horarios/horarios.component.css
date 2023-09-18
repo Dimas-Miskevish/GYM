@@ -9,8 +9,11 @@
 }
 
 #horarios img {
-  width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
-  height: auto; /* Permite que la altura se ajuste proporcionalmente */
+  width: 60%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: 60%; /* Permite que la altura se ajuste proporcionalmente */
+  margin-left: 20%;
+  margin-top: 8%;
+  
 }
 
 .horarios {

@@ -5,6 +5,7 @@
     cursor: pointer;
     transition: all 500ms ease-out;
 }
+
 .carousel-caption {
     position: absolute;
     top: 0;
@@ -86,5 +87,13 @@
     margin-bottom: 20px; /* Ajusta el margen inferior en dispositivos móviles */
     margin-top: 10px; /* Ajusta el margen superior en dispositivos móviles */
     height: 100%;
+  }
+}
+
+@media (max-width: 480px), only screen and (hover: none) {
+  /* Estilos para dispositivos móviles sin hover */
+  .carousel-caption {
+      visibility: visible; /* Hace que el texto sea visible en dispositivos móviles sin hover */
+      opacity: 1;
   }
 }

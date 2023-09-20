@@ -99,11 +99,6 @@ html {
 }
 
 
-
-
-
-
-
 .card__side {
   height: 52rem;
   transition: all 0.8s ease;
@@ -118,10 +113,41 @@ html {
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
 }
 
-.card__side--front {
+.card__side--front{
   background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(228, 178, 70, 0.7)), url(../../assets/nostros/gym.jpg);
   background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
 }
+
+.card__side--front2{
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(228, 178, 70, 0.7)), url(../../assets/nostros/22.jpg);
+  background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
+  background-size: 500px 500px; /* Cambia los valores de ancho y alto según tus preferencias */
+
+}
+.card__side--front3{
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(228, 178, 70, 0.7)), url(../../assets/nostros/3.jpg);
+  background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
+}
+.card__side--front4{
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(228, 178, 70, 0.7)), url(../../assets/nostros/444.jpg);
+  background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
+    background-size:500px 500px; /* Cambia los valores de ancho y alto según tus preferencias */
+
+}
+.card__side--front5{
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(227, 170, 47, 0.7)), url(../../assets/nostros/55.jpg);
+  background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
+    background-size: 500px 500px; /* Cambia los valores de ancho y alto según tus preferencias */
+
+  
+}
+.card__side--front6{
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(228, 178, 70, 0.7)), url(../../assets/nostros/6.jpg);
+  background-repeat: no-repeat; /* Evita la repetición de la imagen de fondo */
+  background-size: 400px 500px; /* Cambia los valores de ancho y alto según tus preferencias */
+
+}
+
 
 .card__side--back {
   background-color: #fff;
@@ -133,9 +159,25 @@ html {
   transform: rotateY(0);
 }
 
-.card:hover .card__side--front {
+.card:hover .card__side--front{
   transform: rotateY(-180deg);
 }
+.card:hover .card__side--front2{
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--front3{
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--front4{
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--front5{
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--front6{
+  transform: rotateY(-180deg);
+}
+
 
 .card__theme {
   position: absolute;
@@ -177,6 +219,56 @@ html {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(189, 203, 64, 0.7)), url(../../assets/nostros/gym.jpg);
+}
+.card__cover2 {
+  position: relative;
+  background-size: cover;
+  height: 8rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(189, 203, 64, 0.7)), url(../../assets/nostros/22.jpg);
+}
+.card__cover3 {
+  position: relative;
+  background-size: cover;
+  height: 8rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(189, 203, 64, 0.7)), url(../../assets/nostros/3.jpg);
+}
+.card__cover4 {
+  position: relative;
+  background-size: cover;
+  height: 8rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(189, 203, 64, 0.7)), url(../../assets/nostros/444.jpg);
+}
+.card__cover5 {
+  position: relative;
+  background-size: cover;
+  height: 8rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(189, 203, 64, 0.7)), url(../../assets/nostros/55.jpg);
+}
+.card__cover6 {
+  position: relative;
+  background-size: cover;
+  height: 8rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(189, 203, 64, 0.7)), url(../../assets/nostros/6.jpg);
 }
 
 .card__heading {
@@ -243,6 +335,7 @@ html {
   .card__side--front {
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
   }
+  
   .card__side--back {
     transform: rotateY(0);
    
@@ -270,6 +363,21 @@ html {
     font-size: 4rem;
   }
   .card__side--front{
+    display: none;
+  }
+  .card__side--front2{
+    display: none;
+  }
+  .card__side--front3{
+    display: none;
+  }
+  .card__side--front4{
+    display: none;
+  }
+  .card__side--front5{
+    display: none;
+  }
+  .card__side--front6{
     display: none;
   }
 }

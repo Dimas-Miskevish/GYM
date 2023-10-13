@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NabvarComponent } from './nabvar/nabvar.component';
@@ -12,12 +9,9 @@ import { EntrenamientoComponent } from './entrenamiento/entrenamiento.component'
 import { HorariosComponent } from './horarios/horarios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ReactiveFormsModule } from '@angular/forms'; 
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
-import { FormsModule } from '@angular/forms'; // Importa FormsModule
-
-
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,16 +21,15 @@ import { FormsModule } from '@angular/forms'; // Importa FormsModule
     NosotrosComponent,
     EntrenamientoComponent,
     HorariosComponent,
-    ContactoComponent
+    ContactoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserModule,
     FormsModule,
-     
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gymo-32260": {
+      "hosting": {
+        "GYM": [
+          "gymo-32260"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gymo-32260"
+  }
+}

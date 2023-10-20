@@ -4,9 +4,9 @@
     right: 10px;
     font-size: 20px;
     cursor: pointer;
-    color: rgb(142, 14, 14);
+    color: rgb(255, 255, 255);
     background: transparent;
-    border: none;
+    border-radius: 10px;
     z-index: 2; /* Asegura que esté por encima del fondo semitransparente */
   }
   
@@ -78,3 +78,27 @@
     z-index: 2;
   }
   
+  /* Estilos para el botón de registro */
+.login form .register-button {
+    background: #007BFF; /* Color de fondo para el botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    
+}
+
+/* Estilos para el botón de cierre dentro del formulario */
+.login form .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(142, 14, 14);
+    background: transparent;
+    border: none;
+    z-index: 2;
+}

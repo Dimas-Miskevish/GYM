@@ -1,17 +1,30 @@
-<section id="login" >
+<section id="login">
   <div class="login" [ngClass]="{ 'open': isLoginFormVisible }">
     <button class="close-button" (click)="closeLoginForm()">X</button>
-    <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su email">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Ingresar</button>
-      </form>
-    </div>
-</section>
+    <form *ngIf="!isRegistrationVisible">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+      <button type="button" class="btn btn-secondary" (click)="showRegistrationForm()">Registrarse</button>
+    </form>
+    
+ <!-- Formulario de registro -->
+<form *ngIf="isRegistrationVisible" [formGroup]="formReg" (ngSubmit)="onSubmit()">
+  
+  <div class="form-group">
+    <label for="email">Correo Electrónico</label>
+    <input type="email" class="form-control" id="email" placeholder="Correo Electrónico" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Contraseña</label>
+    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Registrarse</button>
+  <button type="button" class="btn btn-secondary" (click)="hideRegistrationForm()">Cancelar</button>
+</form>

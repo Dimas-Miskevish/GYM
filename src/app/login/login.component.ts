@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router'; // Importa el servicio Router
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from 'src/services/user.services';
-import { response } from 'express';
 
 
 @Component({
@@ -28,7 +27,7 @@ export class LoginComponent {
     this.userService.register(this.formReg.value)
     .then(response =>{
       console.log(response);
-
+      
     })
     .catch(error => console.log (error));
   

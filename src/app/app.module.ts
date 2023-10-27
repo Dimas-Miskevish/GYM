@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
+import { TurnosComponent } from './turnos/turnos.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     EntrenamientoComponent,
     HorariosComponent,
     ContactoComponent,
-    LoginComponent
+    LoginComponent,
+    MiCuentaComponent,
+    TurnosComponent
   ],
   imports: [
     BrowserModule,

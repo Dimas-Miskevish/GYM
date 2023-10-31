@@ -18,6 +18,12 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { TurnosComponent } from './turnos/turnos.component';
 
+
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,15 +38,23 @@ import { TurnosComponent } from './turnos/turnos.component';
     TurnosComponent
   ],
   imports: [
-    BrowserModule,
+     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    
+    
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
   ],
-  providers: [],
+  providers: [
+    
+      
+      // ...otros proveedores
+    
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

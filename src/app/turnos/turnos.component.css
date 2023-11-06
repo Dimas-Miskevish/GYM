@@ -1,27 +1,82 @@
-.mis-turnos {
+
+.turnos-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.9); /* Fondo gris traslúcido */
+  background: rgba(72, 69, 69, 0.7); /* Fondo gris traslúcido */
   z-index: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Alinear los elementos verticalmente */
+  justify-content: center; /* Centrar el contenido horizontalmente */
   align-items: center;
-  /* Estilos específicos para la sección "Mis Turnos" */
+  text-align: center; /* Alineación del texto al centro */
+  padding: 20px; /* Espacio interior */
 }
 
-.mis-turnos button.close-button {
+.turnos-container h2 {
+  color: white;
+  font-size: 24px; /* Tamaño del encabezado */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+select, input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+button[type="submit"] {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.close-button {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 20px;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: white;
   background: transparent;
-  border: none;
-  /* Otros estilos específicos para el botón de cierre */
+  border-radius: 10px;
+  z-index: 2; /* Asegura que esté por encima del fondo semitransparente */
 }
-
-/* Agrega otros estilos específicos para la sección "Mis Turnos" aquí */

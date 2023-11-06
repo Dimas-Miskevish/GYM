@@ -17,8 +17,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { TurnosComponent } from './turnos/turnos.component';
-
-
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 
 
@@ -43,14 +42,14 @@ import { TurnosComponent } from './turnos/turnos.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    
+
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [
     
-      
       // ...otros proveedores
     
     

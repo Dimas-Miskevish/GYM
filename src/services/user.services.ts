@@ -1,28 +1,48 @@
-import {Injectable} from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut, User} from '@angular/fire/auth';
+import { Injectable } from '@angular/core';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
+import { Firestore, collection, doc, setDoc, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
-@Injectable ({
-    providedIn: 'root'
+@Injectable({
+  providedIn: 'root'
 })
 export class UserService {
-    
-    constructor(private auth: Auth){}
+  usuarios$: Observable<any[]>;
+  usuariosCollection: any;
 
-    register({email, password}: any){
-        return createUserWithEmailAndPassword(this.auth, email, password);
+  constructor(private auth: Auth, private firestore: Firestore) {
+    this.usuariosCollection = collection(this.firestore, 'usuarios');
+    this.usuarios$ = collectionData(this.usuariosCollection);
+  }
 
-    }
-    login(email: string, password: string): Promise<any> {
-        return signInWithEmailAndPassword(this.auth, email, password);
-      }
-      logout(): Promise<void> {
-        return signOut(this.auth);
-      }
+  register({ email, password, nombreCompleto }: any) {
+    return createUserWithEmailAndPassword(this.auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
 
-      getCurrentUser(): User | null {
-        return this.auth.currentUser;
-      }
+        // Guarda el nombre completo en Firestore
+        const userDoc = doc(this.usuariosCollection);
+        setDoc(userDoc, {
+          Id: user.uid,
+          email: email,
+          nombreCompleto: nombreCompleto
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        throw error;
+      });
+  }
 
-      
-      
+  login(email: string, password: string): Promise<any> {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
+
+  logout(): Promise<void> {
+    return signOut(this.auth);
+  }
+
+  getCurrentUser(): User | null {
+    return this.auth.currentUser;
+  }
 }

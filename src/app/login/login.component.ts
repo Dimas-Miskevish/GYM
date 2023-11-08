@@ -20,7 +20,8 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {
     this.formReg = new FormGroup({
       email: new FormControl(),
-      password: new FormControl()
+      password: new FormControl(),
+      nombreCompleto: new FormControl()
       
     });
   } 

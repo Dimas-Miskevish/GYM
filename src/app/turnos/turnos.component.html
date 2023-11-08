@@ -1,56 +1,45 @@
+
 <div class="turnos-container">
-  <h2>Sacar Turno</h2>
+  <h2>Turnos Disponibles</h2>
 
-  <form (ngSubmit)="sacarTurno()" #turnoForm="ngForm">
-    <div class="form-group">
-      <label for="actividad">Actividad:</label>
-      <select id="actividad" name="actividad" [(ngModel)]="nuevoTurno.actividad" required>
-        <option value="" disabled>Selecciona una actividad</option>
-        <option value="boxeo">Boxeo</option>
-        <option value="gap">GAP</option>
-        <option value="hit">HIT</option>
-        <option value="funcional">Funcional</option>
-        <option value="crossfit">Crossfit</option>
-      </select>
-    </div>
+  <div *ngIf="usuarioAutenticado">
+    <form (ngSubmit)="sacarTurno()" #turnoForm="ngForm">
 
-   
+    <!-- Agregar un menú desplegable o botones para que el usuario elija la actividad -->
+    <label for="actividad">Entrenamiento:</label>
 
-    
-    <div class="form-group">
-      <label for="fecha">Fecha:</label>
-      <select id="fecha" name="fecha" [(ngModel)]="nuevoTurno.fecha" required>
-        <option value="" disabled>Selecciona una fecha</option>
-        <option *ngFor="let fecha of fechasDisponibles" [value]="fecha">{{ fecha | date: 'dd/MM/yyyy HH:mm' }}</option>
-      </select>
-    </div>
-    
+    <select id="actividad" name="actividad" [(ngModel)]="actividadSeleccionada">
+      <option value="" disabled>Selecciona una actividad</option>
+      <option *ngFor="let actividad of actividadesDisponibles" [value]="actividad">{{ actividad }}</option>
+    </select>
+
+
+
+<div class="form-group">
+  <label for="fecha">Fecha:</label>
+  <select id="fecha" name="fecha" [(ngModel)]="nuevoTurno.fecha" required>
+    <option value="" disabled>Selecciona una fecha</option>
+    <option *ngFor="let fecha of getFecha" [value]="fecha">{{ fecha }}</option>
+  </select>
+</div>
+
+
+
 
     <div class="form-group">
       <label for="hora">Hora:</label>
       <input type="time" id="hora" name="hora" [(ngModel)]="nuevoTurno.hora" required>
     </div>
 
-    <button type="submit" [disabled]="turnoForm.invalid">Solicitar Turno</button>
+    <button type="submit"(click)="agregarTurno()">Agregar Turno</button>
   </form>
 
-
-  <div *ngIf="usuarioAutenticado">
-    <!-- Agregar un menú desplegable o botones para que el usuario elija la actividad -->
-   
     <button (click)="cargarTurnos()">Mostrar Turnos</button>
-    <button (click)="agregarTurno()">Agregar Turno</button>
     <button (click)="cerrarSesion()">Cerrar Turnos</button>
   </div>
-  <!-- Agregar una sección para mostrar los días y horarios disponibles -->
-  <div *ngIf="diasYHorariosDisponibles && diasYHorariosDisponibles.length > 0">
-    <h3>Días y horarios disponibles para {{ actividadSeleccionada }}</h3>
-    <ul>
-      <li *ngFor="let diaHora of diasYHorariosDisponibles">
-        {{ diaHora }}
-      </li>
-    </ul>
-  </div>
+
+
+  
 
   <div *ngIf="!usuarioAutenticado">
     <p>Debes iniciar sesión para administrar los turnos.</p>
@@ -64,6 +53,5 @@
     </li>
   </ul>
 </div>
-
 
 

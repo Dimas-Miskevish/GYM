@@ -7,4 +7,5 @@ export const environment = {
     authDomain: 'gymo-32260.firebaseapp.com',
     messagingSenderId: '580362922605',
   },
+  
 };

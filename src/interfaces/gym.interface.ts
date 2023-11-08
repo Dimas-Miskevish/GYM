@@ -1,8 +1,23 @@
-export default interface gymo {
-  id?: string;
-  actividad: string;
-  fechasDisponibles: string[]; // Cambia "fecha" por "fechasDisponibles"
-  hora: string; // Campo que almacena la hora (ej. '16:00')
-  
+// usuario.interface.ts
+export interface Usuario {
+  id: string;
+  nombreCompleto: string;
+  email: string;
 }
-  
+
+// deporte.interface.ts
+export interface Deporte {
+  id: string;
+  dia: string;
+  hora: string
+  // Otros campos relacionados con el deporte
+}
+
+// turno.interface.ts
+export interface Turno {
+  id: string;
+  deporteSeleccionado: Deporte;
+  dia: string;
+  hora: string;
+  usuario: Usuario;
+}

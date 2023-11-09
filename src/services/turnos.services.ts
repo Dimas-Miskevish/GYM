@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {  Firestore,   collection,  collectionData,  query,  where,  addDoc,  deleteDoc,  doc,  DocumentData,  DocumentReference,  setDoc, getDocs,} from '@angular/fire/firestore';
 import { getDoc, writeBatch } from 'firebase/firestore/lite';
 import { Observable, from } from 'rxjs';
-import { Usuario, Deporte, Turno } from 'src/interfaces/gym.interface';
+import { usuarios, Deporte, Turno } from 'src/interfaces/gym.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -34,11 +34,6 @@ export class TurnosService {
 
 
 
-
-
-
-
-
   addgymo(gymo: any) {
     const gymref = collection(this.firestore, 'gymo');
     return addDoc(gymref, gymo);
@@ -57,7 +52,15 @@ cargarTurnos() {
     });
 }
 
+
 }
+
+
+
+
+
+
+
 
   
 /*turnos$: Observable<any[]>;

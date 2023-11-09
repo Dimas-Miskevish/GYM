@@ -1,5 +1,5 @@
 // usuario.interface.ts
-export interface Usuario {
+export interface usuarios {
   id: string;
   nombreCompleto: string;
   email: string;
@@ -16,8 +16,8 @@ export interface Deporte {
 // turno.interface.ts
 export interface Turno {
   id: string;
-  deporteSeleccionado: Deporte;
+  nombreDep: Deporte;
   dia: string;
   hora: string;
-  usuario: Usuario;
+  usuarios: usuarios;
 }

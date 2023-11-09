@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TurnosService } from 'src/services/turnos.services';
-import { Turno, Usuario, Deporte } from 'src/interfaces/gym.interface';
+import { Turno, usuarios, Deporte } from 'src/interfaces/gym.interface';
+import { UserService } from 'src/services/user.services';
+
 
 
 @Component({
@@ -12,42 +14,56 @@ import { Turno, Usuario, Deporte } from 'src/interfaces/gym.interface';
 export class TurnosComponent implements OnInit {
   usuarioAutenticado: boolean = true;
   deportes: any[]=[]; // Define una variable para almacenar los deportes obtenidos
-  deporteSeleccionado: any; // Define una variable para almacenar el deporte seleccionado
   dia: string = ''; // Define una variable para el día
   hora: string = ''; // Define una variable para la hora
+  id: string = '';
+  nombreCompleto: string = '';
+  email: string = '';
+  nombreDep: any;
+  
     
   
-    constructor(private router: Router, private turnosService: TurnosService) {
+    constructor(private router: Router, private turnosService: TurnosService, private userService: UserService) {
   
     }
     ngOnInit() {
       // Llama al servicio para obtener la lista de deportes al cargar el componente
       this.turnosService.obtenerDeportes().then((deportes) => {
         this.deportes = deportes;
+        console.log(deportes); // Agrega esta línea para verificar si deportes contiene datos válidos
+        
+
       });
     }
   
     reservarTurno() {
       
+      
       // Crea un objeto Turno con los datos seleccionados por el usuario
       const turno: Turno = {
-        id: 'ID_GENERADO', // Puedes generar un ID de turno, por ejemplo, con Firebase
-        deporteSeleccionado: this.deporteSeleccionado,
+        id: this.id, // Puedes generar un ID de turno, por ejemplo, con Firebase
+        nombreDep: this.nombreDep,
         dia: this.dia,
         hora: this.hora,
-        usuario: {
-          id: 'ID_DEL_USUARIO', // ID del usuario que está realizando la reserva
-          nombreCompleto: 'Nombre del Usuario', // Nombre del usuario
-          email: 'correo@usuario.com' // Correo del usuario
+        usuarios: {
+          id: this.id, // ID del usuario que está realizando la reserva
+          nombreCompleto: this.nombreCompleto, // Nombre del usuario
+          email: this.email
         }
       };
     
       // Llama al servicio para reservar el turno
-      this.turnosService.reservarTurno(turno).then(() => {
+      this.turnosService.reservarTurno(turno).then(async () => {
         // Realiza alguna acción después de reservar el turno, como mostrar un mensaje de éxito
+
         console.log('Turno reservado con éxito.');
+        const datosUsuario = await this.userService.obtenerUsuariosPorEmail(this.email);
+
+        console.log('Datos del usuario después de reservar turno:', this.id, this.nombreCompleto, this.email);
+
       });
     }
+    
     
     
     

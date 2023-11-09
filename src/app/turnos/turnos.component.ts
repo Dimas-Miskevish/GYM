@@ -20,6 +20,7 @@ export class TurnosComponent implements OnInit {
   nombreCompleto: string = '';
   email: string = '';
   nombreDep: any;
+  usuarios: any[]=[];
   
     
   
@@ -30,11 +31,18 @@ export class TurnosComponent implements OnInit {
       // Llama al servicio para obtener la lista de deportes al cargar el componente
       this.turnosService.obtenerDeportes().then((deportes) => {
         this.deportes = deportes;
-        console.log(deportes); // Agrega esta línea para verificar si deportes contiene datos válidos
+        console.log(deportes); 
+      });
+        this.userService.obtenerUsuariosPorEmail(this.email).then((usuarios) =>{
+         this.usuarios = usuarios;
+         console.log(usuarios); 
+
+        });
+      }// Agrega esta línea para verificar si deportes contiene datos válidos
         
 
-      });
-    }
+     
+    
   
     reservarTurno() {
       
@@ -47,7 +55,7 @@ export class TurnosComponent implements OnInit {
         hora: this.hora,
         usuarios: {
           id: this.id, // ID del usuario que está realizando la reserva
-          nombreCompleto: this.nombreCompleto, // Nombre del usuario
+          nombreCompleto: this.nombreCompleto, //  usuario
           email: this.email
         }
       };

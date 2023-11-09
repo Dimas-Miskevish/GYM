@@ -19,6 +19,8 @@ export class TurnosService {
 
     // Agrega el documento a Firestore sin convertidor
     await addDoc(turnosCollection, turno);
+    const usuariosCollection = collection (this.firestore, 'turnos')
+    await addDoc(usuariosCollection, turno);
   }
   async obtenerDeportes() {
     const deportesCollection = collection(this.firestore, 'deportes');
@@ -26,10 +28,13 @@ export class TurnosService {
     const deportesSnapshot = await getDocs(deportesQuery);
     return deportesSnapshot.docs.map((doc) => doc.data() as Deporte);
   }
+  
+  
 
   async reservarTurno(turno: Turno) {
     const turnosCollection = collection(this.firestore, 'turnos');
     await addDoc(turnosCollection, turno);
+    
   }
 
 

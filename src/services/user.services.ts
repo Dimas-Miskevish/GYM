@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, User } from '@angular/fire/auth';
 import { Firestore, collection, doc, setDoc, collectionData, query, getDocs, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -23,11 +23,14 @@ export class UserService {
         const user = userCredential.user;
 
         // Guarda el nombre completo en Firestore
-        const userDoc = doc(this.usuariosCollection);
+        const userDoc = doc(this.usuariosCollection, user.uid);
         setDoc(userDoc, {
           Id: user.uid,
           email: email,
           nombreCompleto: nombreCompleto
+        });
+        return updateProfile(user, {
+          displayName: nombreCompleto,
         });
       })
       .catch((error) => {
@@ -69,15 +72,20 @@ export class UserService {
       const data = {
         id: user.uid,
         email: user.email,
-        nombreCompleto: 'Nombre del Usuario', // Puedes obtener este dato del usuario si lo tienes
+        nombreCompleto: user.displayName || 'Nombre del Usuario', // Puedes obtener este dato del usuario si lo tienes
         // Otras propiedades del usuario si es necesario
       };
+      
       await setDoc(userRef, data, { merge: true });
       console.log('Datos de usuario actualizados:', data);
     } catch (error) {
       console.error('Error al actualizar datos del usuario:', error);
     }
   }
+
+
+
+  
   async obtenerUsuariosPorEmail(email: string): Promise<any | null> {
     const usuariosCollection = collection(this.firestore, 'usuarios');
     const usuariosQuery = query(usuariosCollection, where('email', '==', email));

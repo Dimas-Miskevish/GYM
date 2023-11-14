@@ -8,6 +8,7 @@ export interface usuarios {
 // deporte.interface.ts
 export interface Deporte {
   id: string;
+  nombreDep: string;
   dia: string;
   hora: string
   // Otros campos relacionados con el deporte

@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { TurnosService } from 'src/services/turnos.services';
 import { Turno, usuarios, Deporte } from 'src/interfaces/gym.interface';
 import { UserService } from 'src/services/user.services';
+import { switchMap } from 'rxjs/operators';
+
+
 
 
 
@@ -21,6 +24,15 @@ export class TurnosComponent implements OnInit {
   email: string = '';
   nombreDep: any;
   usuarios: any[]=[];
+  turnos: Turno[] = [];
+  mostrarListaTurnos = false; // Variable para controlar la visibilidad de la lista de turnos
+  turnosDisponibles: any[] = []; // Almacena los turnos disponibles
+  mostrarSacarTurnos: boolean = false;
+  mostrarMisTurnos: boolean = false;
+  mostrarBotones = true;
+
+
+  
   
     
   
@@ -38,11 +50,60 @@ export class TurnosComponent implements OnInit {
          console.log(usuarios); 
 
         });
-      }// Agrega esta línea para verificar si deportes contiene datos válidos
-        
+        this.cargarTurnos();
 
-     
+      }
+      sacarTurnos() {
+        this.mostrarBotones = false;
+        this.mostrarSacarTurnos = true;
+        this.mostrarMisTurnos = false;
+      }
+      
+      MisTurnos() {
+        this.mostrarBotones = false;
+        this.mostrarMisTurnos = true;
+        this.mostrarSacarTurnos = false;
+      }
+      desaparecerAmbos() {
+        this.mostrarSacarTurnos = false;
+        this.mostrarMisTurnos = false;
+      }
+      regresar() {
+        this.mostrarBotones = true;
+        this.mostrarMisTurnos = false;
+        this.mostrarSacarTurnos = false;
+      }
+      
     
+    
+
+      cargarTurnos() {
+        this.turnosService.getTurnos().subscribe((turnos: Turno[]) => {
+          this.turnos = turnos;
+        }, (error: any) => {
+          console.error('Error al cargar los turnos', error);
+        });
+      }
+    
+      async eliminarTurno(id: string): Promise<void> {
+        if (!id) {
+          console.error('ID de turno no válido');
+          return;
+        }
+    
+        try {
+          await this.turnosService.eliminarTurno(id);
+          console.log('Turno eliminado con éxito');
+          this.cargarTurnos(); // Recargar la lista después de eliminar un turno
+        } catch (error) {
+          console.error('Error al eliminar el turno', error);
+        }
+      }
+      
+      mostrarTurnos() {
+        this.mostrarListaTurnos = true; // Muestra la lista de turnos disponibles
+      }
+      
   
     reservarTurno() {
       
@@ -67,16 +128,13 @@ export class TurnosComponent implements OnInit {
         console.log('Turno reservado con éxito.');
         const datosUsuario = await this.userService.obtenerUsuariosPorEmail(this.email);
 
-        console.log('Datos del usuario después de reservar turno:', this.id, this.nombreCompleto, this.email);
+        console.log('Datos del usuario después de reservar turno:', this.turnos, this.usuarios);
 
       });
     }
     
     
-    
-    
-    
-    
+     
     
   
   

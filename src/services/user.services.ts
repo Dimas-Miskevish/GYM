@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   usuarios$: Observable<any[]>;
   usuariosCollection: any;
+  
 
   constructor(private auth: Auth, private firestore: Firestore) {
     this.usuariosCollection = collection(this.firestore, 'usuarios');
@@ -27,7 +28,7 @@ export class UserService {
         setDoc(userDoc, {
           Id: user.uid,
           email: email,
-          nombreCompleto: nombreCompleto
+          nombreCompleto: nombreCompleto,
         });
         return updateProfile(user, {
           displayName: nombreCompleto,

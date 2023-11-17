@@ -1,14 +1,17 @@
 <div class="turnos-container">
   <!-- Botones para seleccionar acción -->
+  
   <div *ngIf="mostrarBotones">
     <button (click)="sacarTurnos()">Sacar Turnos</button>
     <button (click)="MisTurnos()">Mostrar Mis Turnos</button>
+    <button (click)="cerrarSesion()">Cerrar Turnos</button>
+
   </div>
 
   <!-- Contenido para "Sacar Turnos" -->
   <div *ngIf="mostrarSacarTurnos">
     
-    <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm">
+    <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm" >
       <div class="form-group">
         <label for="deporte">Entrenamiento:</label>
         <select id="deporte" name="deporte" [(ngModel)]="nombreDep" required>
@@ -47,9 +50,9 @@
     <h2>Listado de Mis Turnos:</h2>
     <ul>
       <li *ngFor="let turno of turnos" style="color: white;">
-        {{ turno.nombreDep }} - {{ turno.dia }} - {{ turno.hora }}
-        <button (click)="eliminarTurno(turno.id || '')">Eliminar</button>
-      </li>
+      {{turno.id}}  {{ turno.nombreDep }} - {{ turno.dia }} - {{ turno.hora }}
+      <button *ngIf="turno.id !== undefined && turno.id !== null" (click)="eliminarTurno(turno.idAsignado)">Eliminar</button>
+    </li>
     </ul>
       <button (click)="regresar()">Regresar</button>
 
@@ -164,7 +167,6 @@
   </form>
 
     <button (click)="cargarTurnos()">Mostrar Turnos</button>
-    <button (click)="cerrarSesion()">Cerrar Turnos</button>
   </div>
 
 

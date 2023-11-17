@@ -18,6 +18,14 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { MiCuentaComponent } from './mi-cuenta/mi-cuenta.component';
 import { TurnosComponent } from './turnos/turnos.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+// ...
+
+
+
+
 
 
 
@@ -34,14 +42,16 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     ContactoComponent,
     LoginComponent,
     MiCuentaComponent,
-    TurnosComponent
+    TurnosComponent,
   ],
   imports: [
+    
      BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    AngularFirestoreModule,
 
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),

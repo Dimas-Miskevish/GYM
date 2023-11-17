@@ -1,6 +1,6 @@
 // usuario.interface.ts
 export interface usuarios {
-  id: string;
+  id?: string; // Ahora es opcional
   nombreCompleto: string;
   email: string;
 }
@@ -15,10 +15,13 @@ export interface Deporte {
 }
 
 // turno.interface.ts
+// turno.interface.ts
 export interface Turno {
-  id: string;
+  id?: string; // Mantén el ID automático de Firestore (puede ser opcional)
+  idAsignado: string; // Nuevo campo para el ID asignado manualmente
   nombreDep: Deporte;
   dia: string;
   hora: string;
   usuarios: usuarios;
 }
+

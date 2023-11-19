@@ -19,7 +19,7 @@ export interface Deporte {
 export interface Turno {
   id?: string; // Mantén el ID automático de Firestore (puede ser opcional)
   idAsignado: string; // Nuevo campo para el ID asignado manualmente
-  nombreDep: Deporte;
+  nombreDep: string | Deporte;  // Ahora puede ser una cadena o un objeto Deporte
   dia: string;
   hora: string;
   usuarios: usuarios;

@@ -33,6 +33,10 @@ export class TurnosComponent implements OnInit {
   mostrarSacarTurnos: boolean = false;
   mostrarMisTurnos: boolean = false;
   mostrarBotones = true;
+  modoModificacion = false;
+  turnoSeleccionado: Turno | null = null;
+  
+
   ultimoId: number = 0; // Declarar la variable ultimoId aquí
 
   @ViewChild('turnoForm', { static: false }) turnoForm: NgForm | undefined;
@@ -102,6 +106,8 @@ export class TurnosComponent implements OnInit {
     this.mostrarBotones = true;
     this.mostrarMisTurnos = false;
     this.mostrarSacarTurnos = false;
+    this.modoModificacion = false;
+
   }
 
 
@@ -143,6 +149,56 @@ mostrarTurnos() {
     console.log('No hay turnos disponibles');
   }
   this.cargarTurnos();
+}
+
+modificarTurno(idAsignado: string) {
+  // Busca el turno que se va a modificar
+
+  const turnoAModificar = this.turnos.find((turno) => turno.idAsignado === idAsignado);
+
+  // Verifica que se haya encontrado el turno
+  if (turnoAModificar) {
+    // Asigna los valores del turno para habilitar la sección de modificación
+    this.turnoSeleccionado = { ...turnoAModificar }; // Crear una copia para no modificar el original
+
+    // Abre la sección de modificación del turno
+    this.modoModificacion = true;
+    this.mostrarMisTurnos = false;
+    this.mostrarSacarTurnos = false;
+  } else {
+    console.error('No se encontró el turno a modificar.');
+  }
+}
+reservarOActualizarTurno() {
+  if (this.modoModificacion) {
+    this.modificarTurnoExistente(); // Llama a tu función de modificación existente
+  } else {
+    this.reservarTurno();
+  }
+}
+prepararModificacion(turno: Turno) {
+  this.turnoSeleccionado = { ...turno }; // Almacena el turno seleccionado para modificación
+  this.modoModificacion = true;
+  this.mostrarMisTurnos = false;
+  this.mostrarSacarTurnos = false;
+}
+
+modificarTurnoExistente() {
+  // Implementa la lógica de modificación del turno utilizando this.turnoSeleccionado
+  // ...
+
+  // Cierre la sección de modificación del turno
+  this.modoModificacion = false;
+  this.mostrarMisTurnos = true;
+  this.mostrarSacarTurnos = false;
+  this.turnoSeleccionado = null; // Restablece el turno seleccionado
+}
+
+
+
+cancelarModificacion() {
+  this.turnoSeleccionado = null;
+  this.modoModificacion = false;
 }
 
 

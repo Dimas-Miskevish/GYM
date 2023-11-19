@@ -79,11 +79,20 @@ export class TurnosService {
   
 
 
-  async modificarTurno(id: string, nuevoTurno: Turno): Promise<void> {
-    const { nombreDep, dia, hora } = nuevoTurno;
-    const turnoDoc = doc(this.firestore, 'turnos', id);
-    await updateDoc(turnoDoc, { nombreDep, dia, hora });
+  async modificarTurno(idAsignado: string, nuevoTurno: Turno): Promise<void> {
+    try {
+      const turnoDoc = doc(this.firestore, 'turnos', idAsignado);
+      await setDoc(turnoDoc, nuevoTurno);
+      console.log('Turno modificado con éxito. ID:', idAsignado);
+    } catch (error) {
+      console.error('Error al modificar el turno:', error);
+      throw error;
+    }
   }
+  
+  
+  
+
   
     
   

@@ -35,6 +35,8 @@ export class TurnosComponent implements OnInit {
   mostrarBotones = true;
   modoModificacion = false;
   turnoSeleccionado: Turno | null = null;
+  mostrarMensaje: boolean = false;
+
   
 
   ultimoId: number = 0; // Declarar la variable ultimoId aquí
@@ -183,16 +185,49 @@ prepararModificacion(turno: Turno) {
   this.mostrarSacarTurnos = false;
 }
 
-modificarTurnoExistente() {
-  // Implementa la lógica de modificación del turno utilizando this.turnoSeleccionado
-  // ...
+async modificarTurnoExistente() {
+  try {
+    if (this.turnoSeleccionado) {
+      const idAsignadoOriginal = this.turnoSeleccionado.idAsignado;
+      console.log('Modificando turno. ID original:', idAsignadoOriginal);
 
-  // Cierre la sección de modificación del turno
-  this.modoModificacion = false;
-  this.mostrarMisTurnos = true;
-  this.mostrarSacarTurnos = false;
-  this.turnoSeleccionado = null; // Restablece el turno seleccionado
+      // Generar un nuevo ID para el turno modificado
+      const nuevoIdAsignado = generarNuevoId(); // Implementa esta función según tus necesidades
+
+      // Actualizar el ID del turno seleccionado
+      this.turnoSeleccionado.idAsignado = nuevoIdAsignado;
+
+      // Lógica para modificar el turno en la base de datos (Firebase)
+      await this.turnosService.modificarTurno(idAsignadoOriginal, this.turnoSeleccionado);
+
+      console.log('Turno modificado con éxito. Nuevo ID:', nuevoIdAsignado);
+
+      // Eliminar el turno original si es necesario
+      await this.turnosService.eliminarTurno(idAsignadoOriginal);
+
+      // Cierra la sección de modificación del turno
+      this.modoModificacion = false;
+      this.mostrarMisTurnos = true;
+      this.mostrarSacarTurnos = false;
+      this.turnoSeleccionado = null; // Restablece el turno seleccionado
+    } else {
+      console.error('No se ha seleccionado un turno para modificar.');
+    }
+    // Recargar la lista de turnos después de modificar
+    this.cargarTurnos();
+  } catch (error) {
+    console.error('Error al modificar el turno:', error);
+  }
+
+
+function generarNuevoId() {
+  // Implementa la lógica para generar un nuevo ID único, por ejemplo, usando un timestamp
+  return Date.now().toString();
 }
+
+  
+}
+
 
 
 
@@ -225,14 +260,13 @@ async reservarTurno() {
 
     // Realiza alguna acción después de reservar el turno
     console.log('Turno reservado con éxito. ID:', turno.idAsignado, turno);
+    this.cargarTurnos();
+    this.mostrarMensaje = true;
+
   } catch (error) {
     console.error('Error al reservar el turno:', error);
   }
 }
-
-
-
-
 
 
   cerrarMisTurnos() {

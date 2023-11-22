@@ -1,17 +1,19 @@
 <div class="turnos-container">
   <!-- Botones para seleccionar acción -->
   
-  <div *ngIf="mostrarBotones">
-    <button (click)="sacarTurnos()">Sacar Turnos</button>
-    <button (click)="MisTurnos()">Mostrar Mis Turnos</button>
+  <div *ngIf="mostrarBotones" class="boton-container">
+    <button (click)="sacarTurnos()">Reservar Turnos</button>
+    <button (click)="MisTurnos()">Mis Turnos</button>
     <button (click)="cerrarSesion()">Cerrar Turnos</button>
 
   </div>
 
   <!-- Contenido para "Sacar Turnos" -->
-  <div *ngIf="mostrarSacarTurnos">
+  <div *ngIf="mostrarSacarTurnos" class="formulario-container">
     
     <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm" >
+      <h2 style="color: rgb(0, 0, 0);text-align: center;" >Reservar Turno  </h2>
+
       <div class="form-group">
         <label for="deporte">Entrenamiento:</label>
         <select id="deporte" name="deporte" [(ngModel)]="nombreDep" required>
@@ -40,27 +42,31 @@
         <button type="submit">Agregar Turno</button>
         <button (click)="cerrarSesion()">Cerrar Turnos</button>
       </div>
+      <div *ngIf="mostrarMensaje" class="mensaje-exito">
+        Turno agregado con éxito
+      </div>
       <button (click)="regresar()">Regresar</button>
 
     </form>
   </div>
 
   <!-- Contenido para "Mostrar Mis Turnos" -->
-  <div *ngIf="mostrarMisTurnos">
-    <h2>Listado de Mis Turnos:</h2>
+  <div *ngIf="mostrarMisTurnos" class="mis-turnos-container">
+    <h2>Mis Turnos:</h2>
     <ul>
-      <li *ngFor="let turno of turnos" style="color: white;">
+      <li *ngFor="let turno of turnos" style="color: rgb(0, 0, 0);">
         {{ turno.nombreDep }} - {{ turno.dia }} - {{ turno.hora }}
-        <button *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null" (click)="eliminarTurno(turno.idAsignado)">Eliminar</button>
-        <button *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null" (click)="modificarTurno(turno.idAsignado)">Modificar</button>
+        <button  *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null" (click)="eliminarTurno(turno.idAsignado)">Eliminar</button>
+        <button  *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null" (click)="modificarTurno(turno.idAsignado)">Modificar</button>
       </li>
     </ul>
     <button (click)="regresar()">Regresar</button>
   </div>
   
   <!-- Sección para la modificación del turno -->
-  <div *ngIf="modoModificacion && turnoSeleccionado !== null">
+  <div *ngIf="modoModificacion && turnoSeleccionado !== null" class="formulario-containermod">
     <form (ngSubmit)="modificarTurnoExistente()" #turnoForm="ngForm">
+      <h2 style="color: rgb(0, 0, 0);text-align: center;" >Modificar Turno  </h2>
       <div class="form-group">
         <label for="deporte">Entrenamiento:</label>
         <select id="deporte" name="deporte" [(ngModel)]="turnoSeleccionado.nombreDep" required>

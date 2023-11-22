@@ -14,6 +14,10 @@
   text-align: center; /* Alineación del texto al centro */
   padding: 20px; /* Espacio interior */
 }
+.mensaje-exito {
+  color: green;
+  margin-top: 10px;
+}
 
 .turnos-container h2 {
   color: white;
@@ -67,6 +71,7 @@ ul {
 
 li {
   margin: 10px 0;
+  
 }
 
 .close-button {
@@ -80,31 +85,45 @@ li {
   border-radius: 10px;
   z-index: 2; /* Asegura que esté por encima del fondo semitransparente */
 }
+
+/*eliminar turnos */
+
+/* Estilos para la sección "Mostrar Mis Turnos" */
+/* Estilos para la sección "Mostrar Mis Turnos" */
 div[ngIf="mostrarMisTurnos"] {
   margin-top: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #f4f4f4;
-  max-height: 300px; /* Ajusta el límite de altura según sea necesario */
-  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
-  
-}
-.eliminar{
-  color: white;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 80%; /* Ajusta el ancho según sea necesario */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+
 h2 {
-  color: #fff7f7;
+  color: #333; /* Cambia el color del título */
 }
 
 ul {
   list-style-type: none;
   padding: 0;
-  margin: 0; /* Elimina el margen predeterminado en la lista */
+  margin: 0;
 }
 
 li {
   margin-bottom: 10px;
+  background-color: #f7f7f7; /* Añade un fondo blanco a cada elemento de la lista */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120%; /* Ajusta el ancho según sea necesario */
+
 }
 
 button {
@@ -118,4 +137,76 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+/* Estilos para el botón de Regresar */
+button.regresar {
+  background-color: #6c757d;
+}
+
+/* Estilos para el formulario de modificación */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Añade estilos adicionales según sea necesario */
+.turnos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boton-container {
+  display: flex;
+  gap: 10px;
+}
+
+.accion-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.accion-button:hover {
+  background-color: #0056b3;
+}
+
+
+.modificacion-container,
+.sacar-turnos-container {
+  width: 80%; /* Ajusta el ancho según sea necesario */
+  margin-top: 20px;
+}
+.formulario-containermod,
+.formulario-container{
+  width: 50%; /* Ajusta el ancho según sea necesario */
+  margin-top: 20px;
 }

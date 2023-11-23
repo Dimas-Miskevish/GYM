@@ -6,6 +6,8 @@ import { UserService } from 'src/services/user.services';
 import { switchMap } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';  // Asegúrate de importar NgForm
 import { User } from '@angular/fire/auth';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
 
 
 
@@ -26,7 +28,7 @@ export class TurnosComponent implements OnInit {
   id: string = '';
   nombreCompleto: string = '';
   email: string = '';
-  nombreDep: any;
+  nombreDep: any = '';
   usuarios: any[] = [];
   turnos: Turno[] = [];
   turnosDisponibles: any[] = []; // Almacena los turnos disponibles
@@ -36,6 +38,11 @@ export class TurnosComponent implements OnInit {
   modoModificacion = false;
   turnoSeleccionado: Turno | null = null;
   mostrarMensaje: boolean = false;
+  enviadoExitosamente = false; // Asumiendo que utilizas esto para mostrar un mensaje de éxito en tu template
+  mostrarMensajeExito: boolean = false;
+  mensajeExito: string = '';
+
+
 
   
 
@@ -111,6 +118,9 @@ export class TurnosComponent implements OnInit {
     this.modoModificacion = false;
 
   }
+  cerrarMensajeExito(): void {
+    this.mostrarMensajeExito = false;
+  }
 
 
 
@@ -134,6 +144,7 @@ async eliminarTurno(idAsignado: string | undefined | null): Promise<void> {
   if (idAsignado) {
     console.log('ID del turno a eliminar:', idAsignado);
     await this.turnosService.eliminarTurno(idAsignado);
+
     console.log('Turno eliminado con éxito');
     this.cargarTurnos(); // Recargar la lista después de eliminar un turno
   } else {
@@ -162,7 +173,7 @@ modificarTurno(idAsignado: string) {
   if (turnoAModificar) {
     // Asigna los valores del turno para habilitar la sección de modificación
     this.turnoSeleccionado = { ...turnoAModificar }; // Crear una copia para no modificar el original
-
+  
     // Abre la sección de modificación del turno
     this.modoModificacion = true;
     this.mostrarMisTurnos = false;
@@ -174,6 +185,7 @@ modificarTurno(idAsignado: string) {
 reservarOActualizarTurno() {
   if (this.modoModificacion) {
     this.modificarTurnoExistente(); // Llama a tu función de modificación existente
+
   } else {
     this.reservarTurno();
   }
@@ -190,7 +202,9 @@ async modificarTurnoExistente() {
     if (this.turnoSeleccionado) {
       const idAsignadoOriginal = this.turnoSeleccionado.idAsignado;
       console.log('Modificando turno. ID original:', idAsignadoOriginal);
-
+      this.mensajeExito = 'Se modificó tu turno con éxito.';
+      this.mostrarMensajeExito = true;
+      
       // Generar un nuevo ID para el turno modificado
       const nuevoIdAsignado = generarNuevoId(); // Implementa esta función según tus necesidades
 
@@ -201,15 +215,21 @@ async modificarTurnoExistente() {
       await this.turnosService.modificarTurno(idAsignadoOriginal, this.turnoSeleccionado);
 
       console.log('Turno modificado con éxito. Nuevo ID:', nuevoIdAsignado);
-
+      
       // Eliminar el turno original si es necesario
+      
       await this.turnosService.eliminarTurno(idAsignadoOriginal);
 
       // Cierra la sección de modificación del turno
+      
       this.modoModificacion = false;
       this.mostrarMisTurnos = true;
+      this.mostrarMensajeExito = false;
+
       this.mostrarSacarTurnos = false;
       this.turnoSeleccionado = null; // Restablece el turno seleccionado
+
+      
     } else {
       console.error('No se ha seleccionado un turno para modificar.');
     }
@@ -262,11 +282,38 @@ async reservarTurno() {
     console.log('Turno reservado con éxito. ID:', turno.idAsignado, turno);
     this.cargarTurnos();
     this.mostrarMensaje = true;
+    this.enviadoExitosamente = true; // Establece enviadoExitosamente en true después del envío exitoso
+
+    
 
   } catch (error) {
     console.error('Error al reservar el turno:', error);
   }
 }
+//enviar email
+
+
+public sendEmail(e: Event) {
+  e.preventDefault();
+
+  const templateParams = {
+    to_name: 'Destinatario',
+    from_name: 'Remitente',
+    nombreDep: this.nombreDep,
+    dia: this.dia,
+    hora: this.hora,
+  };
+
+  emailjs.sendForm('service_cbp6ata', 'template_6bvhoiv', e.target as HTMLFormElement, 'vJRzSu8zVn0eEOlaw')
+    .then((result: EmailJSResponseStatus) => {
+      console.log(result.text);
+      this.enviadoExitosamente = true; // Establece enviadoExitosamente en true después del envío exitoso
+    }, (error) => {
+      console.log(error.text);
+    });
+}
+
+
 
 
   cerrarMisTurnos() {
@@ -284,6 +331,11 @@ async reservarTurno() {
     // Redirige al componente raíz (por ejemplo, /mi-cuenta) después de cerrar la sesión.
     this.router.navigate(['/mi-cuenta']); // Asegúrate de que la ruta sea correcta según tu configuración.
   }
+cerrarMensaje(): void {
+  this.mostrarMensaje = false;
+  this.mostrarMensajeExito = false;
+  this.mensajeExito = '';
+}
 }
 
 /*

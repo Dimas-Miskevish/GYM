@@ -11,20 +11,20 @@
   <!-- Contenido para "Sacar Turnos" -->
   <div *ngIf="mostrarSacarTurnos" class="formulario-container">
     
-    <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm" >
+    <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm" (submit)="sendEmail($event)">
       <h2 style="color: rgb(0, 0, 0);text-align: center;" >Reservar Turno  </h2>
 
       <div class="form-group">
         <label for="deporte">Entrenamiento:</label>
-        <select id="deporte" name="deporte" [(ngModel)]="nombreDep" required>
+        <select name="deporte" id="deporte" name="deporte" [(ngModel)]="nombreDep" required>
           <option value="" disabled>Selecciona una fecha</option>
-          <option *ngFor="let deporte of deportes" [value]="deporte.nombreDep">{{ deporte.nombreDep }}</option>
+          <option  *ngFor="let deporte of deportes" [value]="deporte.nombreDep">{{ deporte.nombreDep }}</option>
         </select>
       </div>
 
       <div class="form-group">
         <label for="dia">Fecha:</label>
-        <select id="dia" name="dia" [(ngModel)]="dia" required>
+        <select name="dia" id="dia" name="dia" [(ngModel)]="dia" required>
           <option value="" disabled>Selecciona una fecha</option>
           <option *ngFor="let deporte of deportes" [value]="deporte.dia">{{ deporte.dia }}</option>
         </select>
@@ -32,7 +32,7 @@
 
       <div class="form-group">
         <label for="hora">Hora:</label>
-        <select id="hora" name="hora" [(ngModel)]="hora" required>
+        <select name="hora" id="hora" name="hora" [(ngModel)]="hora" required>
           <option value="" disabled>Selecciona una hora</option>
           <option *ngFor="let deporte of deportes" [value]="deporte.hora">{{ deporte.hora }}</option>
         </select>
@@ -42,16 +42,21 @@
         <button type="submit">Agregar Turno</button>
         <button (click)="cerrarSesion()">Cerrar Turnos</button>
       </div>
-      <div *ngIf="mostrarMensaje" class="mensaje-exito">
-        Turno agregado con éxito
-      </div>
+     <!-- Agrega esta sección al final de tu componente HTML -->
+<div *ngIf="mostrarMensaje" class="mensaje-exito">
+  <div class="modal-container">
+    <p>Turno agregado con éxito</p>
+    <button (click)="cerrarMensaje()">OK</button>
+  </div>
+</div>
+
       <button (click)="regresar()">Regresar</button>
 
     </form>
   </div>
 
   <!-- Contenido para "Mostrar Mis Turnos" -->
-  <div *ngIf="mostrarMisTurnos" class="mis-turnos-container">
+  <div *ngIf="mostrarMisTurnos" class="mis-turnos-container" >
     <h2>Mis Turnos:</h2>
     <ul>
       <li *ngFor="let turno of turnos" style="color: rgb(0, 0, 0);">
@@ -95,6 +100,18 @@
         <button type="submit">Guardar Cambios</button>
         <button (click)="cerrarSesion()">Cerrar Turnos</button>
       </div>
+      <!-- En algún lugar de tu template HTML -->
+
+<!-- Agrega esta sección en tu plantilla (HTML) -->
+<div *ngIf="mostrarMensajeExito" class="mensaje-exito">
+  <div class="modal-container">
+
+  {{ mensajeExito }}
+  <button (click)="cerrarMensaje()">OK</button>
+  </div>
+</div>
+
+
       <button (click)="regresar()">Regresar</button>
     </form>
   </div>

@@ -125,6 +125,74 @@ li {
   width: 120%; /* Ajusta el ancho según sea necesario */
 
 }
+.mis-turnos-container {
+  margin-top: 20px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  max-height: 100%;
+  overflow-y: auto;
+  width: auto; /* Cambiado a auto para que el ancho se ajuste al contenido */
+  margin-left: auto;
+  margin-right: auto;
+}
+.mis-turnos-container h2{
+  color: black;
+}
+
+.mis-turnos-container .turno-info {
+  flex-grow: 1; /* El contenido ocupa todo el espacio disponible */
+}
+
+.mis-turnos-container .turno-buttons {
+  display:flex;
+  align-items: center;
+  
+}
+
+.mis-turnos-container li {
+  margin-bottom: 10px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px; /* Establece el ancho máximo deseado */
+  width: 100%; /* Garantiza que ocupe el 100% del contenedor padre */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mis-turnos-container li button {
+  margin-left: 40px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.mis-turnos-container li button:hover {
+  background-color: #0056b3;
+}
+
+.mis-turnos-container li button.eliminar {
+  margin-left: 10px;
+  background-color: #ff0000; /* Color rojo */
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.mis-turnos-container li button.eliminar:hover {
+  background-color: #cc0000; /* Cambia el color al pasar el mouse */
+}
+
+
+
 
 button {
   background-color: #007bff;

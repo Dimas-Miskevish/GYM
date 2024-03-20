@@ -1,6 +1,6 @@
 <div class="turnos-container">
   <!-- Botones para seleccionar acción -->
-
+  
   <div *ngIf="mostrarBotones" class="boton-container">
     <button (click)="sacarTurnos()">Reservar Turnos</button>
     <button (click)="MisTurnos()">Mis Turnos</button>
@@ -10,15 +10,15 @@
 
   <!-- Contenido para "Sacar Turnos" -->
   <div *ngIf="mostrarSacarTurnos" class="formulario-container">
-
+    
     <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm" (submit)="sendEmail($event)">
-      <h2 style="color: rgb(0, 0, 0);text-align: center;">Reservar Turno </h2>
+      <h2 style="color: rgb(0, 0, 0);text-align: center;" >Reservar Turno  </h2>
 
       <div class="form-group">
         <label for="deporte">Entrenamiento:</label>
         <select name="deporte" id="deporte" name="deporte" [(ngModel)]="nombreDep" required>
           <option value="" disabled>Selecciona una fecha</option>
-          <option *ngFor="let deporte of deportes" [value]="deporte.nombreDep">{{ deporte.nombreDep }}</option>
+          <option  *ngFor="let deporte of deportes" [value]="deporte.nombreDep">{{ deporte.nombreDep }}</option>
         </select>
       </div>
 
@@ -42,13 +42,13 @@
         <button type="submit">Agregar Turno</button>
         <button (click)="cerrarSesion()">Cerrar Turnos</button>
       </div>
-      <!-- Agrega esta sección al final de tu componente HTML -->
-      <div *ngIf="mostrarMensaje" class="mensaje-exito">
-        <div class="modal-container">
-          <p>Turno agregado con éxito</p>
-          <button (click)="cerrarMensaje()">OK</button>
-        </div>
-      </div>
+     <!-- Agrega esta sección al final de tu componente HTML -->
+<div *ngIf="mostrarMensaje" class="mensaje-exito">
+  <div class="modal-container">
+    <p>Turno agregado con éxito</p>
+    <button (click)="cerrarMensaje()">OK</button>
+  </div>
+</div>
 
       <button (click)="regresar()">Regresar</button>
 
@@ -56,27 +56,22 @@
   </div>
 
   <!-- Contenido para "Mostrar Mis Turnos" -->
-  <div *ngIf="mostrarMisTurnos" class="mis-turnos-container">
+  <div *ngIf="mostrarMisTurnos" class="mis-turnos-container" >
     <h2>Mis Turnos:</h2>
     <ul>
       <li *ngFor="let turno of turnos" style="color: rgb(0, 0, 0);">
         {{ turno.nombreDep }} - {{ turno.dia }} - {{ turno.hora }}
-        <div class="turno-buttons">
-          <button *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null"
-            (click)="modificarTurno(turno.idAsignado)">Modificar</button>
-
-          <button class="eliminar" *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null"
-            (click)="eliminarTurno(turno.idAsignado)">Eliminar</button>
-        </div>
+        <button  *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null" (click)="eliminarTurno(turno.idAsignado)">Eliminar</button>
+        <button  *ngIf="turno.idAsignado !== undefined && turno.idAsignado !== null" (click)="modificarTurno(turno.idAsignado)">Modificar</button>
       </li>
     </ul>
     <button (click)="regresar()">Regresar</button>
   </div>
-
+  
   <!-- Sección para la modificación del turno -->
   <div *ngIf="modoModificacion && turnoSeleccionado !== null" class="formulario-containermod">
     <form (ngSubmit)="modificarTurnoExistente()" #turnoForm="ngForm">
-      <h2 style="color: rgb(0, 0, 0);text-align: center;">Modificar Turno </h2>
+      <h2 style="color: rgb(0, 0, 0);text-align: center;" >Modificar Turno  </h2>
       <div class="form-group">
         <label for="deporte">Entrenamiento:</label>
         <select id="deporte" name="deporte" [(ngModel)]="turnoSeleccionado.nombreDep" required>
@@ -84,7 +79,7 @@
           <option *ngFor="let deporte of deportes" [value]="deporte.nombreDep">{{ deporte.nombreDep }}</option>
         </select>
       </div>
-
+  
       <div class="form-group">
         <label for="dia">Fecha:</label>
         <select id="dia" name="dia" [(ngModel)]="turnoSeleccionado.dia" required>
@@ -92,7 +87,7 @@
           <option *ngFor="let deporte of deportes" [value]="deporte.dia">{{ deporte.dia }}</option>
         </select>
       </div>
-
+  
       <div class="form-group">
         <label for="hora">Hora:</label>
         <select id="hora" name="hora" [(ngModel)]="turnoSeleccionado.hora" required>
@@ -100,29 +95,290 @@
           <option *ngFor="let deporte of deportes" [value]="deporte.hora">{{ deporte.hora }}</option>
         </select>
       </div>
-
+  
       <div class="button-container">
         <button type="submit">Guardar Cambios</button>
         <button (click)="cerrarSesion()">Cerrar Turnos</button>
       </div>
       <!-- En algún lugar de tu template HTML -->
 
-      <!-- Agrega esta sección en tu plantilla (HTML) -->
-      <div *ngIf="mostrarMensajeExito" class="mensaje-exito">
-        <div class="modal-container">
+<!-- Agrega esta sección en tu plantilla (HTML) -->
+<div *ngIf="mostrarMensajeExito" class="mensaje-exito">
+  <div class="modal-container">
 
-          {{ mensajeExito }}
-          <button (click)="cerrarMensaje()">OK</button>
-        </div>
-      </div>
+  {{ mensajeExito }}
+  <button (click)="cerrarMensaje()">OK</button>
+  </div>
+</div>
 
 
       <button (click)="regresar()">Regresar</button>
     </form>
   </div>
-
+  
   <!-- Contenido para "Sacar Turnos" -->
   <div *ngIf="mostrarSacarTurnos">
     <!-- Agrega aquí el contenido del formulario de sacar turnos -->
   </div>
+  
+
+
+
+<!--
+<div class="turnos-container">
+
+  <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm">
+    
+    <div class="form-group">
+      <label for="deporte">Entrenamiento:</label>
+      <select id="deporte" name="deporte" [(ngModel)]="nombreDep" required>
+        <option value="" disabled>Selecciona una fecha</option>
+        <option *ngFor="let deporte of deportes" [value]="deporte.nombreDep">{{ deporte.nombreDep }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dia">Fecha:</label>
+      <select id="dia" name="dia" [(ngModel)]="dia" required>
+        <option value="" disabled>Selecciona una fecha</option>
+        <option *ngFor="let deporte of deportes" [value]="deporte.dia">{{ deporte.dia }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hora">Hora:</label>
+      <select id="hora" name="hora" [(ngModel)]="hora" required>
+        <option value="" disabled>Selecciona una hora</option>
+        <option *ngFor="let deporte of deportes" [value]="deporte.hora">{{ deporte.hora }}</option>
+      </select>
+    </div>
+
+    <div class="button-container">
+      <button type="submit">Agregar Turno</button>
+      <button (click)="cerrarSesion()">Cerrar Turnos</button>
+    </div>
+    <div *ngIf="turnos.length > 0; else noTurnos">
+      <h2>Listado de Turnos:</h2>
+      <ul>
+        <li *ngFor="let turno of turnos">
+          {{ turno.nombreDep }} - {{ turno.dia }} - {{ turno.hora }}
+          <button (click)="eliminarTurno(turno.id)">Eliminar</button>
+        </li>
+      </ul>
+    </div>
+    
+    <ng-template #noTurnos>
+      <p>No hay turnos disponibles.</p>
+    </ng-template>
+    
+
+    
+  </form>
+</div>
+
+ 
+<!--
+  <ul *ngIf="turnos.length > 0" class="turnos-list">
+    <li *ngFor="let turno of turnos" class="turno-item">
+      {{ turno.deporteSeleccionado.id }} - {{ turno.dia }} a las {{ turno.hora }}
+      <button (click)="eliminarTurno(turno.id)">Eliminar</button>
+    </li>
+  </ul>
+</div>
+
+<button (click)="cargarTurnos()">Mostrar Turnos</button>
+
+
+
+
+
+
+
+
+<!--
+<div class="turnos-container">
+  <h2>Turnos Disponibles</h2>
+
+  <div *ngIf="usuarioAutenticado">
+    <form (ngSubmit)="sacarTurno()" #turnoForm="ngForm">
+
+    Agregar un menú desplegable o botones para que el usuario elija la actividad 
+    <label for="actividad">Entrenamiento:</label>
+
+    <select id="actividad" name="actividad" [(ngModel)]="actividadSeleccionada">
+      <option value="" disabled>Selecciona una actividad</option>
+      <option *ngFor="let actividad of actividadesDisponibles" [value]="actividad">{{ actividad }}</option>
+    </select>
+
+
+
+<div class="form-group">
+  <label for="fecha">Fecha:</label>
+  <select id="fecha" name="fecha" [(ngModel)]="nuevoTurno.fecha" required>
+    <option value="" disabled>Selecciona una fecha</option>
+    <option *ngFor="let fecha of getFecha" [value]="fecha">{{ fecha }}</option>
+  </select>
+</div>
+
+
+
+
+    <div class="form-group">
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" name="hora" [(ngModel)]="nuevoTurno.hora" required>
+    </div>
+
+    <button type="submit"(click)="agregarTurno()">Agregar Turno</button>
+  </form>
+
+    <button (click)="cargarTurnos()">Mostrar Turnos</button>
   </div>
+
+
+  
+
+  <div *ngIf="!usuarioAutenticado">
+    <p>Debes iniciar sesión para administrar los turnos.</p>
+    <button  class="close-button" (click)="cerrarMisTurnos()">Cerrar Mis Turnos</button>
+  </div>
+
+  <ul *ngIf="turnos.length > 0" class="turnos-list">
+    <li *ngFor="let turno of turnos" class="turno-item">
+      {{ turno.actividad }} - {{ turno.fecha | date: 'dd/MM/yyyy' }} a las {{ turno.hora }}
+      <button (click)="eliminarTurno(turno.id)">Eliminar</button>
+    </li>
+  </ul>
+</div>
+
+-->
+
+
+<!--
+<div class="turnos-container">
+
+  <form (ngSubmit)="reservarTurno()" #turnoForm="ngForm">
+    
+    <div class="form-group">
+      <label for="deporte">Entrenamiento:</label>
+      <select id="deporte" name="deporte" [(ngModel)]="nombreDep" required>
+        <option value="" disabled>Selecciona una fecha</option>
+        <option *ngFor="let deporte of deportes" [value]="deporte.nombreDep">{{ deporte.nombreDep }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dia">Fecha:</label>
+      <select id="dia" name="dia" [(ngModel)]="dia" required>
+        <option value="" disabled>Selecciona una fecha</option>
+        <option *ngFor="let deporte of deportes" [value]="deporte.dia">{{ deporte.dia }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hora">Hora:</label>
+      <select id="hora" name="hora" [(ngModel)]="hora" required>
+        <option value="" disabled>Selecciona una hora</option>
+        <option *ngFor="let deporte of deportes" [value]="deporte.hora">{{ deporte.hora }}</option>
+      </select>
+    </div>
+
+    <div class="button-container">
+      <button type="submit">Agregar Turno</button>
+      <button (click)="cerrarSesion()">Cerrar Turnos</button>
+    </div>
+    <div *ngIf="turnos.length > 0; else noTurnos">
+      <h2>Listado de Turnos:</h2>
+      <ul>
+        <li *ngFor="let turno of turnos">
+          {{ turno.nombreDep }} - {{ turno.dia }} - {{ turno.hora }}
+          <button (click)="eliminarTurno(turno.id)">Eliminar</button>
+        </li>
+      </ul>
+    </div>
+    
+    <ng-template #noTurnos>
+      <p>No hay turnos disponibles.</p>
+    </ng-template>
+    
+
+    
+  </form>
+</div>
+
+ 
+<!--
+  <ul *ngIf="turnos.length > 0" class="turnos-list">
+    <li *ngFor="let turno of turnos" class="turno-item">
+      {{ turno.deporteSeleccionado.id }} - {{ turno.dia }} a las {{ turno.hora }}
+      <button (click)="eliminarTurno(turno.id)">Eliminar</button>
+    </li>
+  </ul>
+</div>
+
+<button (click)="cargarTurnos()">Mostrar Turnos</button>
+
+
+
+
+
+
+
+
+<!--
+<div class="turnos-container">
+  <h2>Turnos Disponibles</h2>
+
+  <div *ngIf="usuarioAutenticado">
+    <form (ngSubmit)="sacarTurno()" #turnoForm="ngForm">
+
+    Agregar un menú desplegable o botones para que el usuario elija la actividad 
+    <label for="actividad">Entrenamiento:</label>
+
+    <select id="actividad" name="actividad" [(ngModel)]="actividadSeleccionada">
+      <option value="" disabled>Selecciona una actividad</option>
+      <option *ngFor="let actividad of actividadesDisponibles" [value]="actividad">{{ actividad }}</option>
+    </select>
+
+
+
+<div class="form-group">
+  <label for="fecha">Fecha:</label>
+  <select id="fecha" name="fecha" [(ngModel)]="nuevoTurno.fecha" required>
+    <option value="" disabled>Selecciona una fecha</option>
+    <option *ngFor="let fecha of getFecha" [value]="fecha">{{ fecha }}</option>
+  </select>
+</div>
+
+
+
+
+    <div class="form-group">
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" name="hora" [(ngModel)]="nuevoTurno.hora" required>
+    </div>
+
+    <button type="submit"(click)="agregarTurno()">Agregar Turno</button>
+  </form>
+
+    <button (click)="cargarTurnos()">Mostrar Turnos</button>
+    <button (click)="cerrarSesion()">Cerrar Turnos</button>
+  </div>
+
+
+  
+
+  <div *ngIf="!usuarioAutenticado">
+    <p>Debes iniciar sesión para administrar los turnos.</p>
+    <button  class="close-button" (click)="cerrarMisTurnos()">Cerrar Mis Turnos</button>
+  </div>
+
+  <ul *ngIf="turnos.length > 0" class="turnos-list">
+    <li *ngFor="let turno of turnos" class="turno-item">
+      {{ turno.actividad }} - {{ turno.fecha | date: 'dd/MM/yyyy' }} a las {{ turno.hora }}
+      <button (click)="eliminarTurno(turno.id)">Eliminar</button>
+    </li>
+  </ul>
+</div>
+
+-->
+
